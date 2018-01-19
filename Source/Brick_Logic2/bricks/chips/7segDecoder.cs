@@ -79,6 +79,7 @@ function SegmentBrick4x4Data::DoLog(%data,%gate,%statestack,%client)
 			%E = 1;
 			%F = 1;
 			%G = 0;
+			break;
 
 		case 1:
 			%A = 0;
@@ -87,6 +88,7 @@ function SegmentBrick4x4Data::DoLog(%data,%gate,%statestack,%client)
 			%D = 0;
 			%E = 0;
 			%G = 0;
+			break;
 
 		case 2:
 			%A = 1;
@@ -96,6 +98,7 @@ function SegmentBrick4x4Data::DoLog(%data,%gate,%statestack,%client)
 			%E = 1;
 			%F = 0;
 			%G = 1;
+			break;
 
 		case 3:
 			%A = 1;
@@ -105,6 +108,7 @@ function SegmentBrick4x4Data::DoLog(%data,%gate,%statestack,%client)
 			%E = 0;
 			%F = 0;
 			%G = 1;
+			break;
 
 		case 4:
 			%A = 0;
@@ -114,6 +118,7 @@ function SegmentBrick4x4Data::DoLog(%data,%gate,%statestack,%client)
 			%E = 0;
 			%F = 1;
 			%G = 1;
+			break;
 
 		case 5:
 			%A = 1;
@@ -123,6 +128,7 @@ function SegmentBrick4x4Data::DoLog(%data,%gate,%statestack,%client)
 			%E = 0;
 			%F = 1;
 			%G = 1;
+			break;
 
 		case 6:
 			%A = 1;
@@ -132,6 +138,7 @@ function SegmentBrick4x4Data::DoLog(%data,%gate,%statestack,%client)
 			%E = 1;
 			%F = 1;
 			%G = 1;
+			break;
 
 		case 7:
 			%A = 1;
@@ -141,6 +148,7 @@ function SegmentBrick4x4Data::DoLog(%data,%gate,%statestack,%client)
 			%E = 0;
 			%F = 0;
 			%G = 0;
+			break;
 
 		case 8:
 			%A = 1;
@@ -150,6 +158,7 @@ function SegmentBrick4x4Data::DoLog(%data,%gate,%statestack,%client)
 			%E = 1;
 			%F = 1;
 			%G = 1;
+			break;
 
 		case 9:
 			%A = 1;
@@ -159,6 +168,7 @@ function SegmentBrick4x4Data::DoLog(%data,%gate,%statestack,%client)
 			%E = 0;
 			%F = 1;
 			%G = 1;
+			break;
 
 		case 10:
 			%A = 1;
@@ -168,6 +178,7 @@ function SegmentBrick4x4Data::DoLog(%data,%gate,%statestack,%client)
 			%E = 1;
 			%F = 1;
 			%G = 1;
+			break;
 
 		case 11:
 			%A = 0;
@@ -177,6 +188,7 @@ function SegmentBrick4x4Data::DoLog(%data,%gate,%statestack,%client)
 			%E = 1;
 			%F = 1;
 			%G = 1;
+			break;
 
 		case 12:
 			%A = 1;
@@ -186,6 +198,7 @@ function SegmentBrick4x4Data::DoLog(%data,%gate,%statestack,%client)
 			%E = 1;
 			%F = 1;
 			%G = 0;
+			break;
 
 		case 13:
 			%A = 0;
@@ -195,6 +208,7 @@ function SegmentBrick4x4Data::DoLog(%data,%gate,%statestack,%client)
 			%E = 1;
 			%F = 0;
 			%G = 1;
+			break;
 
 		case 14:
 			%A = 1;
@@ -204,6 +218,7 @@ function SegmentBrick4x4Data::DoLog(%data,%gate,%statestack,%client)
 			%E = 1;
 			%F = 1;
 			%G = 1;
+			break;
 
 		case 15:
 			%A = 1;
@@ -213,6 +228,7 @@ function SegmentBrick4x4Data::DoLog(%data,%gate,%statestack,%client)
 			%E = 1;
 			%F = 1;
 			%G = 1;
+			break;
 	}
 
 	SetPEPowered(%gate.PE[0],%A,%client);
