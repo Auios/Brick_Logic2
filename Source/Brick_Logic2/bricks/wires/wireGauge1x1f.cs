@@ -1,8 +1,8 @@
 datablock fxDTSBrickData (WireGauge1x1fData : brick1x1fPrintData)
 {
-	category = "LogicBricks";
+	category = "Logic Bricks";
 	subCategory = "Wires";
-	uiName = "WireGauge";
+	uiName = "Wire Gauge";
 	alwaysShowWireFrame = false;
 	IsLogicBrick = 1;
 	IsWire = 1;
