@@ -28,29 +28,33 @@ datablock StaticShapeData(InputElementVisualData)
 };
 
 
-//Switching animation
-function fxDTSBrick::onActivate(%gate,%player,%client,%globalhitpos,%unitvector)
+package LogicBrick_Functions
 {
-   parent::onActivate(%gate,%player,%client,%globalhitpos,%unitvector);
-   if(%gate.IsLogicBrick && %gate.IsGate)
+   //Switching animation
+   function fxDTSBrick::onActivate(%gate,%player,%client,%globalhitpos,%unitvector)
    {
-      if(%gate.GateName $= "SWITCH")
+      parent::onActivate(%gate,%player,%client,%globalhitpos,%unitvector);
+      if(%gate.IsLogicBrick && %gate.IsGate)
       {
-         if(%gate.flipped == 1)
+         if(%gate.GateName $= "SWITCH")
          {
-            %gate.setdatablock(PoweredSwitchOffData);
-            %gate.flipped = 0;
-            return;
-         }
-         if(%gate.flipped == 0)
-         {
-            %gate.setdatablock(PoweredSwitchOnData);
-            %gate.flipped = 1;
-            return;
+            if(%gate.flipped == 1)
+            {
+               %gate.setdatablock(PoweredSwitchOffData);
+               %gate.flipped = 0;
+               return;
+            }
+            if(%gate.flipped == 0)
+            {
+               %gate.setdatablock(PoweredSwitchOnData);
+               %gate.flipped = 1;
+               return;
+            }
          }
       }
    }
-}
+};
+activatepackage(LogicBrick_Functions);
 
 //Parent
 exec("./bricks/special/poweredBrick.cs");
