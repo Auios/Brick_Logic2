@@ -11,19 +11,25 @@ datablock fxDTSBrickData (HalfAdderBrick2x2Data : Powerbrick1x1Data)
 	GateName = "Half Adder";
 	TipInfo = "...";
 	ISINSTANT = 0;
+
 	numPE = 2;
+
 	PEName[0] = "Sum";
 	PEPos[0] = "0.25 0.25 0.0";
 	PEScale[0] = "0.5 0.5 0.16666";
 	PEStart[0] = 0;
+
 	PEName[1] = "Carry";
 	PEPos[1] = "-0.25 0.25 0.0";
 	PEScale[1] = "0.5 0.5 0.16666";
 	PEStart[1] = 0;
+
 	numIE = 2;
+
 	IEName[0] = "A";
 	IEPos[0] = "-0.25 -0.25 0";
 	IEScale[0] = "0.5 0.5 0.16666";
+
 	IEName[1] = "B";
 	IEPos[1] = "0.25 -0.25 0";
 	IEScale[1] = "0.5 0.5 0.16666";
@@ -31,7 +37,7 @@ datablock fxDTSBrickData (HalfAdderBrick2x2Data : Powerbrick1x1Data)
 
 function HalfAdderBrick2x2Data::DoLog(%data,%gate,%statestack,%client)
 {
-	%gate.currentSum = (%statestack.ins[0] * 2) + (%statestack.ins[0] * 1);
+	%gate.currentSum = (%statestack.ins[1] * 2) + (%statestack.ins[0] * 1);
 
 	switch(%gate.currentSum)
 	{
