@@ -28,7 +28,7 @@ datablock fxDTSBrickData (SegmentBrick4x4Data : Powerbrick1x1Data)
 
 	numPE = 7;
 	PEName[3] = "D"; //this should b accurate
-	PEPos[3] = "0.25 0.25 0";
+	PEPos[3] = "0.25 0.75 0";
 	PEScale[3] = "0.5 0.5 0.16666";
 	PEStart[3] = 0;
 
@@ -58,7 +58,7 @@ datablock fxDTSBrickData (SegmentBrick4x4Data : Powerbrick1x1Data)
 	PEStart[1] = 0;
 
 	PEName[6] = "G";
-	PEPos[6] = "0.25 0.75 0";
+	PEPos[6] = "0.25 0.25";
 	PEScale[6] = "0.5 0.5 0.16666";
 	PEStart[6] = 0;
 };
@@ -87,6 +87,7 @@ function SegmentBrick4x4Data::DoLog(%data,%gate,%statestack,%client)
 			%C = 1;
 			%D = 0;
 			%E = 0;
+			%F = 0;
 			%G = 0;
 			break;
 
