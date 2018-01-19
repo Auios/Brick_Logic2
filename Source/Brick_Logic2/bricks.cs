@@ -27,6 +27,31 @@ datablock StaticShapeData(InputElementVisualData)
    boxsize = "0.3 0.3 0.3";
 };
 
+
+//Switching animation
+function fxDTSBrick::onActivate(%gate,%player,%client,%globalhitpos,%unitvector)
+{
+   parent::onActivate(%gate,%player,%client,%globalhitpos,%unitvector);
+   if(%gate.IsLogicBrick && %gate.IsGate)
+   {
+      if(%gate.GateName $= "SWITCH")
+      {
+         if(%gate.flipped == 1)
+         {
+            %gate.setdatablock(PoweredSwitchOffData);
+            %gate.flipped = 0;
+            return;
+         }
+         if(%gate.flipped == 0)
+         {
+            %gate.setdatablock(PoweredSwitchOnData);
+            %gate.flipped = 1;
+            return;
+         }
+      }
+   }
+}
+
 //Parent
 exec("./bricks/special/poweredBrick.cs");
 

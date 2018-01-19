@@ -99,30 +99,6 @@ function PoweredSwitchOffData::onLoadplant(%data,%brick)
 	%brick.flipped = 0;
 }
 
-//switching animation
-function fxDTSBrick::onActivate(%gate,%player,%client,%globalhitpos,%unitvector)
-{
-	parent::onActivate(%gate,%player,%client,%globalhitpos,%unitvector);
-	if(%gate.IsLogicBrick && %gate.IsGate)
-	{
-		if(%gate.GateName $= "SWITCH")
-		{
-			if(%gate.flipped == 1)
-			{
-				%gate.setdatablock(PoweredSwitchOffData);
-				%gate.flipped = 0;
-				return;
-			}
-			if(%gate.flipped == 0)
-			{
-				%gate.setdatablock(PoweredSwitchOnData);
-				%gate.flipped = 1;
-				return;
-			}
-		}
-	}
-}
-
 function PoweredSwitchOnData::DoLog(%data,%gate,%statestack,%client)
 {
 	%out = %statestack.outs[0];

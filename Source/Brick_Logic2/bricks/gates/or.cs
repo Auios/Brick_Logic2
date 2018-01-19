@@ -27,7 +27,7 @@ datablock fxDTSBrickData (ORBrick2x2Data : Powerbrick1x1Data)//base
 	IEScale[1] = "0.5 0.5 0.16666";
 };
 
-function ORBrick2x2Data ::DoLog(%data,%gate,%statestack,%client)
+function ORBrick2x2Data::DoLog(%data,%gate,%statestack,%client)
 {
 	if(%statestack.ins[0] || %statestack.ins[1])
 	{
