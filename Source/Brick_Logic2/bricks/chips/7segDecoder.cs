@@ -67,7 +67,7 @@ function SegmentBrick4x4Data::DoLog(%data,%gate,%statestack,%client)
 {
 	%A = %B = %C = %D = %E = %F = %G = 1;
 
-	%gate.currentValue = (%statestack.ins[3] * 8) + (%statestack.ins[2] * 4) + (%statestack.ins[1] * 2) + (%statestack.ins[0] * 1);
+	%gate.currentValue = (%statestack.ins[0] * 8) + (%statestack.ins[1] * 4) + (%statestack.ins[2] * 2) + (%statestack.ins[3] * 1);
 
 	switch(%gate.currentValue)
 	{
