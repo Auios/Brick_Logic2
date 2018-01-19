@@ -13,7 +13,7 @@ datablock fxDTSBrickData (NANDBrick2x2Data : Powerbrick1x1Data)//base
 
 	numPE = 1;
 	PEName[0] = "Output";
-	PEPos[0] = "-0.25 -0.25 0.0";//where the first power element will be in local cords relative to center of brick.
+	PEPos[0] = "-0.25 0.25 0.0";//where the first power element will be in local cords relative to center of brick.
 	PEScale[0] = "0.5 0.5 0.16666";
 
 	numIE = 2;

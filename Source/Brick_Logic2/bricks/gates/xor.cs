@@ -27,7 +27,7 @@ datablock fxDTSBrickData (XORBrick2x2Data : Powerbrick1x1Data)//base
 
 function XORBrick2x2Data::DoLog(%data,%gate,%statestack,%client)
 {
-	if((!%statestack.ins[0] && !%statestack.ins[1]) && (%statestack.ins[0] || %statestack.ins[1]))
+	if(%statestack.ins[0] || %statestack.ins[1] && !(%statestack.ins[0] && %statestack.ins[1]))
 	{
 		%out = 1;
 	}

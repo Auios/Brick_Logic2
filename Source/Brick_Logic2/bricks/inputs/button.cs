@@ -24,6 +24,6 @@ function logButtonBrickData::onplant(%data,%brick)
 	%brick.AddEvent( 1, "0", "onActivate", "Self", "fireRelay");
 	%brick.AddEvent( 1, "0", "onActivate", "Self", "setEventEnabled", "0 1", 0);
 	%brick.AddEvent( 1, "0", "onRelay", "Self", "SetPower", 1);
-	%brick.AddEvent( 1, "500", "onRelay", "Self", "SetPower", 0);
-	%brick.AddEvent( 1, "533", "onRelay", "Self", "setEventEnabled", "0 1", 1);
+	%brick.AddEvent( 1, "100", "onRelay", "Self", "SetPower", 0);
+	%brick.AddEvent( 1, "133", "onRelay", "Self", "setEventEnabled", "0 1", 1);
 }

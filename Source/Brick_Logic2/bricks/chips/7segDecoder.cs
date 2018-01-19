@@ -10,52 +10,55 @@ datablock fxDTSBrickData (SegmentBrick4x4Data : Powerbrick1x1Data)
 	GateName = "7 Seg Decoder";
 	TipInfo = "4bit value translates to their proper pins that\ncorrespond to a standard 7 segment display pins.\n(0 - F)";
 	numIE = 4;
-	IEName[0] = "Input8"; //1st on left
-	IEPos[0] = "0.75 0.75 0";
+	IEName[0] = "Input3"; //1st on left
+	IEPos[0] = "-0.75 -0.75 0";
 	IEScale[0] = "0.5 0.5 0.16666";
-	IEName[1] = "Input4";
-	IEPos[1] = "0.25 0.75 0";
+
+	IEName[1] = "Input2";
+	IEPos[1] = "-0.25 -0.75 0";
 	IEScale[1] = "0.5 0.5 0.16666";
-	IEName[2] = "Input2";
-	IEPos[2] = "-0.25 0.75 0"; 
+
+	IEName[2] = "Input1";
+	IEPos[2] = "0.25 -0.75 0"; 
 	IEScale[2] = "0.5 0.5 0.16666";
-	IEName[3] = "Input1"; //last from left
-	IEPos[3] = "-0.75 0.75 0";
+
+	IEName[3] = "Input0"; //last from left
+	IEPos[3] = "0.75 -0.75 0";
 	IEScale[3] = "0.5 0.5 0.16666";
 
 	numPE = 7;
 	PEName[3] = "D"; //this should b accurate
-	PEPos[3] = "-0.25 -0.25 0";
+	PEPos[3] = "0.25 0.25 0";
 	PEScale[3] = "0.5 0.5 0.16666";
 	PEStart[3] = 0;
 
 	PEName[4] = "E"; 
-	PEPos[4] = "-0.75 0.25 0";
+	PEPos[4] = "0.75 -0.25 0";
 	PEScale[4] = "0.5 0.5 0.16666";
 	PEStart[4] = 0;
 	
 	PEName[5] = "F"; 
-	PEPos[5] = "-0.75 -0.25 0";
+	PEPos[5] = "0.75 0.25 0";
 	PEScale[5] = "0.5 0.5 0.16666";
 	PEStart[5] = 0;
 	
 	PEName[0] = "A";
-	PEPos[0] = "0.25 -0.75 0";
+	PEPos[0] = "-0.25 0.75 0";
 	PEScale[0] = "0.5 0.5 0.16666";
 	PEStart[0] = 0;
 	
 	PEName[2] = "C"; 
-	PEPos[2] = "0.75 0.25 0";
+	PEPos[2] = "-0.75 -0.25 0";
 	PEScale[2] = "0.5 0.5 0.16666";
 	PEStart[2] = 0;
 	
 	PEName[1] = "B"; 
-	PEPos[1] = "0.75 -0.25 0";
+	PEPos[1] = "-0.75 0.25 0";
 	PEScale[1] = "0.5 0.5 0.16666";
 	PEStart[1] = 0;
 
 	PEName[6] = "G";
-	PEPos[6] = "-0.25 -0.75 0";
+	PEPos[6] = "0.25 0.75 0";
 	PEScale[6] = "0.5 0.5 0.16666";
 	PEStart[6] = 0;
 };
