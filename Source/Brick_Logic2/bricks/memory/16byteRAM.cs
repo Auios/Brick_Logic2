@@ -20,6 +20,7 @@ datablock fxDTSBrickData (Ram16byteBrickData : Powerbrick1x1Data)//base
 	PEName[0] = "Out7";
 	PEPos[0] = "-3.75 0.75 0.0";
 	PEScale[0] = "0.5 0.5 0.16666";
+	PEStart[0] = 0;
 
 	PEName[1] = "Out6";
 	PEPos[1] = "-3.25 0.75 0.0";
