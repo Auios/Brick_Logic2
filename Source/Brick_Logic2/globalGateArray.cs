@@ -35,6 +35,7 @@ function GlobalGateArray::RemoveGate(%this,%gate)
 		
 	}
 }
+
 function GlobalGateArray::Organize(%this)
 {
 	%temparray[0] = "";
