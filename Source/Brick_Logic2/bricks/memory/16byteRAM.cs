@@ -1,4 +1,4 @@
-datablock fxDTSBrickData (Ram8BitBrickData : Powerbrick1x1Data)//base
+datablock fxDTSBrickData (Ram16byteBrickData : Powerbrick1x1Data)//base
 {
 	category = "Logic Bricks";
 	subCategory = "Memory";
@@ -115,3 +115,36 @@ datablock fxDTSBrickData (Ram8BitBrickData : Powerbrick1x1Data)//base
 	IEPos[14] = "2.75 -0.75 0.0";
 	IEScale[14] = "0.5 0.5 0.16666";
 };
+
+function Ram16byteBrickData::DoLog(%data,%gate,%statestack,%client)
+{
+	//first figure out the address
+	%gate.currAddr = (%statestack.ins[11] * 1) + (%statestack.ins[12] * 2) + (%statestack.ins[13] * 4) + (%statestack.ins[14] * 8);
+
+	if(!%gate.IE[10].previousState && %statestack.ins[10])//positive clock edge.
+	{
+		if(%statestack.ins[8])//if write enable
+		{
+			%gate.data[%gate.currAddr,0] = %statestack.ins[0];
+			%gate.data[%gate.currAddr,1] = %statestack.ins[1];
+			%gate.data[%gate.currAddr,2] = %statestack.ins[2];
+			%gate.data[%gate.currAddr,3] = %statestack.ins[3];
+			%gate.data[%gate.currAddr,4] = %statestack.ins[4];
+			%gate.data[%gate.currAddr,5] = %statestack.ins[5];
+			%gate.data[%gate.currAddr,6] = %statestack.ins[6];
+			%gate.data[%gate.currAddr,7] = %statestack.ins[7];
+		}
+		
+		if(%statestack.ins[9])//read enabled
+		{
+			SetPEPowered(%gate.PE[0],%gate.data[%gate.currAddr,0],%client);
+			SetPEPowered(%gate.PE[1],%gate.data[%gate.currAddr,1],%client);
+			SetPEPowered(%gate.PE[2],%gate.data[%gate.currAddr,2],%client);
+			SetPEPowered(%gate.PE[3],%gate.data[%gate.currAddr,3],%client);
+			SetPEPowered(%gate.PE[4],%gate.data[%gate.currAddr,4],%client);
+			SetPEPowered(%gate.PE[5],%gate.data[%gate.currAddr,5],%client);
+			SetPEPowered(%gate.PE[6],%gate.data[%gate.currAddr,6],%client);
+			SetPEPowered(%gate.PE[7],%gate.data[%gate.currAddr,7],%client);
+		}
+	}
+}

@@ -23,3 +23,9 @@ datablock fxDTSBrickData (NotBrick1x2Data : Powerbrick1x1Data)
 	IEPos[0] = "0 -0.25 0";
 	IEScale[0] = "0.5 0.5 0.16666";
 };
+
+function NotBrick1x2Data::DoLog(%data,%gate,%statestack,%client)
+{
+	%out = !%statestack.ins[0];
+	SetPEPowered(%gate.PE[0],%out,%client);
+}

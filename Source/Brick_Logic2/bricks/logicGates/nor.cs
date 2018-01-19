@@ -24,3 +24,16 @@ datablock fxDTSBrickData (NORBrick2x2Data : Powerbrick1x1Data)//base
 	IEPos[1] = "0.25 -0.25 0";
 	IEScale[1] = "0.5 0.5 0.16666";
 };
+
+function NORBrick2x2Data::DoLog(%data,%gate,%statestack,%client)
+{
+	if(!%statestack.ins[0] || !%statestack.ins[1])
+	{
+		%out = 1;
+	}
+	else
+	{
+		%out = 0;
+	}
+	SetPEPowered(%gate.PE[0],%out,%client);
+}

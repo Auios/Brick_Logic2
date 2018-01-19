@@ -19,3 +19,9 @@ datablock fxDTSBrickData (PowerBrick1x1Data : brick1x1Data)//base
 	numIE = 0;
 	IEPos[0] = "0 0 0";
 };
+
+function PowerBrick1x1Data::DoLog(%data,%gate,%statestack,%client)
+{
+	%out = %statestack.outs[0];
+	SetPEPowered(%gate.PE[0],%out,%client);
+}
