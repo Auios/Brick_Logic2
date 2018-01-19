@@ -27,11 +27,14 @@ datablock StaticShapeData(InputElementVisualData)
    boxsize = "0.3 0.3 0.3";
 };
 
+//Parent
+exec("./bricks/special/poweredBrick.cs");
+
 //Wires
 exec("./bricks/wires/1x1.cs");
 exec("./bricks/wires/1x1f.cs");
-exec("./bricks/wires/1x3f.cs");
 exec("./bricks/wires/1x2f.cs");
+exec("./bricks/wires/1x3f.cs");
 exec("./bricks/wires/1x4f.cs");
 exec("./bricks/wires/wireGauge1x1f.cs");
 
@@ -48,7 +51,6 @@ exec("./bricks/inputs/switch.cs");
 exec("./bricks/inputs/button.cs");
 
 //Special
-exec("./bricks/special/poweredBrick.cs");
 exec("./bricks/special/diode.cs");
 exec("./bricks/special/halfAdder.cs");
 exec("./bricks/special/fullAdder.cs");

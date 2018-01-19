@@ -32,7 +32,7 @@ if(isFile("Add-Ons/System_ReturnToBlockland/server.cs"))
 
 if(!isEventPending($SpaceMods::SpaceTick))
 {
-  exec("./spaceTick.cs");
+  exec("./spaceTicks.cs");
 }
 
 //See If Variables Events are on the server
