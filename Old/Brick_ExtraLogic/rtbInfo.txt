@@ -1,0 +1,5 @@
+id: 4190
+icon: electricity
+type: Bricks
+title: Extra Logic Bricks
+version: 3

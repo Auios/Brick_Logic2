@@ -1,0 +1,5 @@
+id: 20525
+icon: electricity
+type: Bricks
+title: Kirby's Logic Bricks
+version: 1
