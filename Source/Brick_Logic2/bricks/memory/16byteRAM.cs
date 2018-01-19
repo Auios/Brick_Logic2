@@ -4,7 +4,7 @@ datablock fxDTSBrickData (Ram16byteBrickData : Powerbrick1x1Data)//base
 	subCategory = "Memory";
 	uiName = "16 byte RAM";
 	iconName = "base/client/ui/brickIcons/4x16f";
-	brickFile = "../Gate4x16f.blb";
+	brickFile = "Add-Ons/Brick_Logic2/bricks/Gate4x16f.blb";
 	alwaysShowWireFrame = false;
 	IsLogicBrick = 1;
 	IsGate = 1;

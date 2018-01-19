@@ -4,7 +4,7 @@ datablock fxDTSBrickData (FullAdderBrick2x3Data : Powerbrick1x1Data)
 	subCategory = "Special";
 	uiName = "Full Adder";
 	iconName = "base/client/ui/brickIcons/2x3f";
-	brickFile = "../Gate2x3f.blb";
+	brickFile = "Add-Ons/Brick_Logic2/bricks/Gate2x3f.blb";
 	alwaysShowWireFrame = false;
 	IsLogicBrick = 1;
 	IsGate = 1;

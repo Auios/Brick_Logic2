@@ -51,7 +51,7 @@ exec("./bricks/inputs/button.cs");
 exec("./bricks/special/poweredBrick.cs");
 exec("./bricks/special/diode.cs");
 exec("./bricks/special/halfAdder.cs");
-exec("./bricks/special/fullAdder.cs");special
+exec("./bricks/special/fullAdder.cs");
 
 //Chips
 exec("./bricks/chips/7segDecoder.cs");

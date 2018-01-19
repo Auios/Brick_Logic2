@@ -3,7 +3,7 @@ datablock fxDTSBrickData (NotBrick1x2Data : Powerbrick1x1Data)
 	category = "Logic Bricks";
 	subCategory = "Logic Gates";
 	uiName = "NOT Gate";
-	brickFile = "../Gate1x2f.blb";
+	brickFile = "Add-Ons/Brick_Logic2/bricks/Gate1x2f.blb";
 	iconName = "base/client/ui/brickIcons/1x2f";
 	alwaysShowWireFrame = false;
 	IsLogicBrick = 1;

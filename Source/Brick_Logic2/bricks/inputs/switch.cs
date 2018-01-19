@@ -3,7 +3,7 @@ datablock fxDTSBrickData (PoweredSwitchOnData : PowerBrick1x1Data)
 	category = "";
 	subCategory = "";
 	uiName = "SwitchOn";
-	brickFile = "./SwitchOn.blb";
+	brickFile = "Add-Ons/Brick_Logic2/bricks/SwitchOn.blb";
 	iconName = "";
 	alwaysShowWireFrame = false;
 	IsLogicBrick = 1;
@@ -33,7 +33,7 @@ datablock fxDTSBrickData (PoweredSwitchOffData : PoweredSwitchOnData)
 	category = "Logic Bricks";
 	subCategory = "Inputs";
 	uiName = "Switch";
-	brickFile = "./SwitchOff.blb";
+	brickFile = "Add-Ons/Brick_Logic2/bricks/SwitchOff.blb";
 	iconName = "Add-Ons/Brick_Logic/Switch";
 	alwaysShowWireFrame = false;
 	IsLogicBrick = 1;

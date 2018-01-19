@@ -4,7 +4,7 @@ datablock fxDTSBrickData (SegmentBrick4x4Data : Powerbrick1x1Data)
 	subCategory = "Chips";
 	uiName = "7 Seg Decoder";
 	iconName = "base/client/ui/brickIcons/4x4f";
-	brickFile = "../Gate4x4f.blb";
+	brickFile = "Add-Ons/Brick_Logic2/bricks/Gate4x4f.blb";
 	IsLogicBrick = 1;
 	IsGate = 1;
 	GateName = "7 Seg Decoder";
