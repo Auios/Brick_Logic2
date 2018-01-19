@@ -27,4 +27,34 @@ datablock StaticShapeData(InputElementVisualData)
    boxsize = "0.3 0.3 0.3";
 };
 
+//Wires
 exec("./bricks/wires/1x1.cs");
+exec("./bricks/wires/1x1f.cs");
+exec("./bricks/wires/1x3f.cs");
+exec("./bricks/wires/1x2f.cs");
+exec("./bricks/wires/1x4f.cs");
+exec("./bricks/wires/wireGauge1x1f.cs");
+
+//Gates
+exec("./bricks/gates/and.cs");
+exec("./bricks/gates/or.cs");
+exec("./bricks/gates/xor.cs");
+exec("./bricks/gates/not.cs");
+exec("./bricks/gates/nand.cs");
+exec("./bricks/gates/nor.cs");
+
+//Inputs
+exec("./bricks/inputs/switch.cs");
+exec("./bricks/inputs/button.cs");
+
+//Special
+exec("./bricks/special/poweredBrick.cs");
+exec("./bricks/special/diode.cs");
+exec("./bricks/special/halfAdder.cs");
+exec("./bricks/special/fullAdder.cs");special
+
+//Chips
+exec("./bricks/chips/7segDecoder.cs");
+
+//Memory
+exec("./bricks/memory/16byteRAM.cs");

@@ -30,7 +30,7 @@ datablock fxDTSBrickData (PoweredSwitchOnData : PowerBrick1x1Data)
 
 datablock fxDTSBrickData (PoweredSwitchOffData : PoweredSwitchOnData)
 {
-	category = "LogicBricks";
+	category = "Logic Bricks";
 	subCategory = "Inputs";
 	uiName = "Switch";
 	brickFile = "./SwitchOff.blb";

@@ -1,6 +1,6 @@
 datablock fxDTSBrickData (WireBrick1x1Data : brick1x1Data)//base
 {
-	category = "LogicBricks";
+	category = "Logic Bricks";
 	subCategory = "Wires";
 	uiName = "WireBrick1x1";
 	alwaysShowWireFrame = false;
