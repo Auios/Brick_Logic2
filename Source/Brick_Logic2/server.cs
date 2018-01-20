@@ -1,29 +1,14 @@
 //Brick_Logic2
 
-//RTB Mod Prefs////////////////////////////////////////////////////////////////
-if(isFile(%file = "config/server/RTB/modprefs.cs"))
+if($RTB::Hooks::ServerControl)
 {
-	exec(%file);
+	RTB_registerPref("Show Wire Tips", "Logic Bricks", "$Pref::Server::LogicBricks::ShowWireTips", "bool", "Logic_Bricks", true, 0, 0, "");
+	RTB_registerPref("Show Gate Tips", "Logic Bricks", "$Pref::Server::LogicBricks::ShowGateTips", "bool", "Logic_Bricks", true, 0, 0, "");
 }
-//if the preset are not set (first time), then set them
-if($Pref::Logic_Bricks::ShowWireTips $= "")
+else
 {
-	$Pref::Logic_Bricks::ShowWireTips = True;
-}
-
-if($Pref::Logic_Bricks::ShowGateTips $= "")
-{
-	$Pref::Logic_Bricks::ShowGateTips = True;
-}
-
-if(isFile("Add-Ons/System_ReturnToBlockland/server.cs"))
-{
-	if(!$RTB::RTBR_ServerControl_Hook)
-	{
-		exec("Add-Ons/System_ReturnToBlockland/RTBR_ServerControl_Hook.cs");
-	}
-	RTB_registerPref("Show Wire Tips","Logic_Bricks","$Pref::Logic_Bricks::ShowWireTips","bool","Logic_Bricks",25,0,0);
-	RTB_registerPref("Show Gate Tips","Logic_Bricks","$Pref::Logic_Bricks::ShowGateTips","bool","Logic_Bricks",25,0,0);
+	if($Pref::Server::LogicBricks::ShowWireTips $= "") $Pref::Server::LogicBricks::ShowWireTips = true;
+	if($Pref::Server::LogicBricks::ShowGateTips $= "") $Pref::Server::LogicBricks::ShowGateTips = true;
 }
 
 //lets start up spacetick, it may be already up due to other mods, but we'll check.
@@ -32,13 +17,13 @@ if(isFile("Add-Ons/System_ReturnToBlockland/server.cs"))
 
 if(!isEventPending($SpaceMods::SpaceTick))
 {
-  exec("./spaceTicks.cs");
+	exec("./spaceTicks.cs");
 }
 
 //See If Variables Events are on the server
 if($VCE::Server::Version)
 {
-  exec("./VCEGlew.cs");
+	exec("./VCEGlew.cs");
 }
 
 exec("./bricks.cs"); 

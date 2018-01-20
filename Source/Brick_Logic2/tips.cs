@@ -18,7 +18,7 @@ package Logic_Tips
 			return;
 		}
 		
-		if(%brick.IsWire && $Pref::Logic_Bricks::ShowWireTips)
+		if(%brick.IsWire && $Pref::Server::LogicBricks::ShowWireTips)
 		{	
 			if(%brick.state == 1)
 			{
@@ -42,7 +42,7 @@ package Logic_Tips
 			}
 		}
 
-		if(%brick.IsGate && $Pref::Logic_Bricks::ShowGateTips)
+		if(%brick.IsGate && $Pref::Server::LogicBricks::ShowGateTips)
 		{
 			//first we need to which element the raycast was closer to.
 			%SmallestDist = 100;
