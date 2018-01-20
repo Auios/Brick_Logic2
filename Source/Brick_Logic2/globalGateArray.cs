@@ -22,7 +22,6 @@ function GlobalGateArray::AddGate(%this, %gate)
 
 function GlobalGateArray::RemoveGate(%this, %gate)
 {
-	%this.print();
 	if(%gate.IsLogicBrick && %gate.IsGate)
 	{
 		%lastIndx = %this.Gateindx-1;
@@ -32,7 +31,6 @@ function GlobalGateArray::RemoveGate(%this, %gate)
 		%this.Gates[%lastIndx] = "";
 		%this.Gateindx--;
 	}
-	%this.print();
 }
 
 function GlobalGateArray::Print(%this)
