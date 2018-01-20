@@ -91,3 +91,13 @@ function MemoryCellBrickOn2x2Data::DoLog(%data, %gate, %statestack, %client)
 			SetPEPowered(%gate.PE[0], %gate.data, %client);
 	}
 }
+
+function MemoryCellBrickOn2x2Data::onLoadPlant(%this, %obj)
+{
+	%obj.data = 1;
+}
+
+function MemoryCellBrickOn2x2Data::onPlant(%this, %obj)
+{
+	%obj.data = 1;
+}
