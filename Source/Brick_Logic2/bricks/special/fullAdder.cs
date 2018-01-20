@@ -49,6 +49,5 @@ function FullAdderBrick2x3Data::DoLog(%data, %gate, %statestack, %client)
 		case 3:
 			SetPEPowered(%gate.PE[0], 1, %client);
 			SetPEPowered(%gate.PE[1], 1, %client);
-
 	}
 }
