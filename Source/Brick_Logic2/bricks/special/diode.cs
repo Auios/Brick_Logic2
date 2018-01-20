@@ -21,8 +21,7 @@ datablock fxDTSBrickData (DiodeBrick1x2Data : Powerbrick1x1Data)
 	IEScale[0] = "0.5 0.5 0.16666";
 };
 
-function DiodeBrick1x2Data::DoLog(%data,%gate,%statestack,%client)
+function DiodeBrick1x2Data::DoLog(%data, %gate, %statestack, %client)
 {
-	%out = %statestack.ins[0];	
-	SetPEPowered(%gate.PE[0],%out,%client);
+	SetPEPowered(%gate.PE[0], %statestack.ins[0], %client);
 }

@@ -9,7 +9,7 @@ datablock fxDTSBrickData (FullAdderBrick2x3Data : Powerbrick1x1Data)
 	IsLogicBrick = 1;
 	IsGate = 1;
 	GateName = "Full Adder";
-	TipInfo = "...";
+	TipInfo = "Adds A and B with carry in";
 	ISINSTANT = 0;
 	numPE = 2;
 	PEName[0] = "Carry out";
@@ -32,52 +32,23 @@ datablock fxDTSBrickData (FullAdderBrick2x3Data : Powerbrick1x1Data)
 	IEScale[2] = "0.5 0.5 0.16666";
 };
 
-function FullAdderBrick2x3Data::DoLog(%data,%gate,%statestack,%client)
+function FullAdderBrick2x3Data::DoLog(%data, %gate, %statestack, %client)
 {
-	if(%statestack.ins[0] == %statestack.ins[1] && %statestack.ins[0] == %statestack.ins[2]) {
-		if(!%statestack.ins[0]) {
-			%out1 = 0;
-			%out2 = 0;
-		}
-		else
-		{
-			%out1 = 1;
-			%out2 = 1;
-		}
+	%sum = %statestack.ins[0] + %statestack.ins[1] + %statestack.ins[2];
+	switch(%sum)
+	{
+		case 0:
+			SetPEPowered(%gate.PE[0], 0, %client);
+			SetPEPowered(%gate.PE[1], 0, %client);
+		case 1:
+			SetPEPowered(%gate.PE[0], 0, %client);
+			SetPEPowered(%gate.PE[1], 1, %client);
+		case 2:
+			SetPEPowered(%gate.PE[0], 1, %client);
+			SetPEPowered(%gate.PE[1], 0, %client);
+		case 3:
+			SetPEPowered(%gate.PE[0], 1, %client);
+			SetPEPowered(%gate.PE[1], 1, %client);
+
 	}
-	else if(%statestack.ins[0] == %statestack.ins[1]) {
-		if(%statestack.ins[0]){
-			%out1 = 1;
-			%out2 = 0;
-		}
-		else
-		{
-			%out1 = 0;
-			%out2 = 1;
-		}
-	}
-	else if(%statestack.ins[0] == %statestack.ins[2]) {
-		if(%statestack.ins[0]) {
-			%out1 = 1;
-			%out2 = 0;
-		}
-		else
-		{
-			%out1 = 0;
-			%out2 = 1;
-		}
-	}
-	else if(%statestack.ins[1] == %statestack.ins[2]) {
-		if(%statestack.ins[1]) {
-			%out1 = 1;
-			%out2 = 0;
-		}
-		else
-		{
-			%out1 = 0;
-			%out2 = 1;
-		}
-	}
-	SetPEPowered(%gate.PE[0],%out1,%client);
-	SetPEPowered(%gate.PE[1],%out2,%client);
 }
