@@ -25,15 +25,7 @@ datablock fxDTSBrickData (NANDBrick2x2Data : Powerbrick1x1Data)//base
 	IEScale[1] = "0.5 0.5 0.16666";
 };
 
-function NANDBrick2x2Data::DoLog(%data,%gate,%statestack,%client)
+function NANDBrick2x2Data::DoLog(%data, %gate, %statestack, %client)
 {
-	if(%statestack.ins[0] && %statestack.ins[1])
-	{
-		%out = 0;
-	}
-	else
-	{
-		%out = 1;
-	}
-	SetPEPowered(%gate.PE[0],%out,%client);
+	SetPEPowered(%gate.PE[0], !(%statestack.ins[0] && %statestack.ins[1]), %client);
 }

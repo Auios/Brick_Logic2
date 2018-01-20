@@ -25,15 +25,7 @@ datablock fxDTSBrickData (XORBrick2x2Data : Powerbrick1x1Data)//base
 	IEScale[1] = "0.5 0.5 0.16666";
 };
 
-function XORBrick2x2Data::DoLog(%data,%gate,%statestack,%client)
+function XORBrick2x2Data::DoLog(%data, %gate, %statestack, %client)
 {
-	if((%statestack.ins[0] || %statestack.ins[1]) && !(%statestack.ins[0] && %statestack.ins[1]))
-	{
-		%out = 1;
-	}
-	else
-	{
-		%out = 0;
-	}
-	SetPEPowered(%gate.PE[0],%out,%client);
+	SetPEPowered(%gate.PE[0], (%statestack.ins[0] || %statestack.ins[1]) && !(%statestack.ins[0] && %statestack.ins[1]), %client);
 }
