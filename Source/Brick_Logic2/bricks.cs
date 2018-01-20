@@ -79,3 +79,4 @@ exec("./bricks/chips/7segDecoder.cs");
 
 //Memory
 exec("./bricks/memory/16byteRAM.cs");
+exec("./bricks/memory/memoryCell.cs");
