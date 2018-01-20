@@ -519,7 +519,7 @@ package Logic2_System
 
 		%PE = new StaticShape()
 		{
-			dataBlock = "PowerElementShapeData";
+			dataBlock = "LogicElementShapeData";
 			position = %globalPosition;
 			rotation = "1 0 0 0";
 			scale = %scale;
@@ -585,7 +585,7 @@ package Logic2_System
 		%GlobalPosition = CalcPositionOfElement(%startbrick,%localpos);
 		%IE = new StaticShape()
 		{
-			dataBlock = "InputElementShapeData";
+			dataBlock = "LogicElementShapeData";
 			position = %globalPosition;
 			rotation = "1 0 0 0";
 		    scale = %scale;
