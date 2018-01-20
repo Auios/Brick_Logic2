@@ -46,7 +46,6 @@ datablock fxDTSBrickData (MemoryCellBrickOn2x2Data : MemoryCellBrickOff2x2Data)
 	PEName[0] = "Output";
 	PEPos[0] = "-0.25 0.25 0.0";
 	PEScale[0] = "0.5 0.5 0.16666";
-	PEStart[0] = 1;
 
 	numIE = 3;
 
