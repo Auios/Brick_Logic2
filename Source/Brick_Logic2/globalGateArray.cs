@@ -3,13 +3,10 @@
 $GlobalGateArray = new ScriptObject(GlobalGateArray)
 {
 	Gates[0] = "";
-	GateIndx = 0;
-	
-	ReferenceHoles = 0;//when logic bricks are deleted, instead of refreshing the array,  we use this to keep track of how many null spaces are in the array..
-	MaxHoles = 20;
+	Gateindx = 0;
 };
 
-function GlobalGateArray::AddGate(%this,%gate)
+function GlobalGateArray::AddGate(%this, %gate)
 {
 	if(%gate.IsLogicBrick && %gate.IsGate)
 	{
@@ -19,52 +16,25 @@ function GlobalGateArray::AddGate(%this,%gate)
 		//Echo("Gate" SPC %gate SPC "Added to GlobalGateArray");
 	}
 }
-function GlobalGateArray::RemoveGate(%this,%gate)
+
+function GlobalGateArray::RemoveGate(%this, %gate)
 {
 	if(%gate.IsLogicBrick && %gate.IsGate)
 	{
-		%this.Gates[%gate.Arrayindx] = "";
-		%this.ReferenceHoles++;
-		//Echo("Gate" SPC %gate SPC "Removed From GlobalGateArray");
-		if(%this.ReferenceHoles >= %this.MaxHoles)
-		{
-			//echo("MaxHoles Reached");
-			%this.Organize();
-			%this.ReferenceHoles = 0;
-		}
-		
-	}
-}
+		%lastIndx = %this.Gateindx-1;
 
-function GlobalGateArray::Organize(%this)
-{
-	%temparray[0] = "";
-	%tempindx = %this.Gateindx;
-	for(%i=0;%i<%this.Gateindx;%i++)//loop throught the whole array
-	{
-		if(IsObject(%this.Gates[%i]))
-		{
-			%temparray[%i] = %this.Gates[%i];
-			
-		}
+		%this.Gates[%gate.Arrayindx] = %this.Gates[%lastIndx];
+		%this.Gates[%lastIndx] = "";
+		%this.Gateindx--;
 	}
-	%this.Clear();//clear the list out
-	for(%i=0;%i<%tempindx;%i++)//loop throught the whole array
-	{
-		if(IsObject(%temparray[%i]))
-		{
-			%this.AddGate(%temparray[%i]);
-		}
-	}
-	
 }
 
 function GlobalGateArray::Clear(%this)
 {
-	for(%i=0;%i<%this.Gateindx;%i++)
+	for(%i = 0; %i < %this.Gateindx; %i++)
 	{
 		%this.Gates[%i] = "";
 	}
-	%this.Gateindx=0;
+	%this.Gateindx = 0;
 	//Echo("GlobalGateArrayCleared");
 }
