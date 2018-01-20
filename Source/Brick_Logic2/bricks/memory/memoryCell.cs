@@ -95,9 +95,11 @@ function MemoryCellBrickOn2x2Data::DoLog(%data, %gate, %statestack, %client)
 function MemoryCellBrickOn2x2Data::onLoadPlant(%this, %obj)
 {
 	%obj.data = 1;
+	PlantMerger(%this, %obj, 1);
 }
 
 function MemoryCellBrickOn2x2Data::onPlant(%this, %obj)
 {
 	%obj.data = 1;
+	PlantMerger(%this, %obj, 0);
 }
