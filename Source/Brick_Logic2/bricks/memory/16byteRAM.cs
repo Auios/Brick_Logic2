@@ -95,7 +95,7 @@ datablock fxDTSBrickData (Ram16byteBrickData : Powerbrick1x1Data)//base
 	IEScale[9] = "0.5 0.5 0.16666";
 
 	//Clock
-	IEName[10] = "Execute";
+	IEName[10] = "Clock";
 	IEPos[10] = "3.75 0.75 0.0";
 	IEScale[10] = "0.5 0.5 0.16666";
 

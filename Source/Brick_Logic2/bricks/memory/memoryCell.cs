@@ -57,7 +57,7 @@ datablock fxDTSBrickData (MemoryCellBrickOn2x2Data : MemoryCellBrickOff2x2Data)
 	IEPos[1] = "0.25 -0.25 0";
 	IEScale[1] = "0.5 0.5 0.16666";
 
-	IEName[2] = "Execute";
+	IEName[2] = "Clock";
 	IEPos[2] = "0.25 0.25 0.0";
 	IEScale[2] = "0.5 0.5 0.16666";
 };
