@@ -3,58 +3,55 @@
 //POWER ELEMENT DATA
 datablock StaticShapeData(PowerElementShapeData)
 {
-   shapeFile = "base/data/shapes/empty.dts";
-   boxsize = "0.3 0.3 0.3";
-   IsLogicBrick = 1;
+	shapeFile = "base/data/shapes/empty.dts";
+	boxsize = "0.3 0.3 0.3";
+	IsLogicBrick = 1;
 };
 //INPUT ELEMENT DATA
 datablock StaticShapeData(InputElementShapeData)
 {
-   shapeFile = "base/data/shapes/empty.dts";
-   boxsize = "0.3 0.3 0.3";
-   IsLogicBrick = 1;
+	shapeFile = "base/data/shapes/empty.dts";
+	boxsize = "0.3 0.3 0.3";
+	IsLogicBrick = 1;
 };
 //visualpower element data.
 datablock StaticShapeData(PowerElementVisualData)
 {
-   shapeFile = "./bricks/PEvisual.dts";
-   boxsize = "0.3 0.3 0.3";
+	shapeFile = "./bricks/PEvisual.dts";
+	boxsize = "0.3 0.3 0.3";
 };
 //visual input element data.
 datablock StaticShapeData(InputElementVisualData)
 {
-   shapeFile = "./bricks/IEvisual.dts";
-   boxsize = "0.3 0.3 0.3";
+	shapeFile = "./bricks/IEvisual.dts";
+	boxsize = "0.3 0.3 0.3";
 };
-
 
 package LogicBrick_Functions
 {
-   //Switching animation
-   function fxDTSBrick::onActivate(%gate,%player,%client,%globalhitpos,%unitvector)
-   {
-      parent::onActivate(%gate,%player,%client,%globalhitpos,%unitvector);
-      if(%gate.IsLogicBrick && %gate.IsGate)
-      {
-         if(%gate.GateName $= "SWITCH")
-         {
-            if(%gate.flipped == 1)
-            {
-               %gate.setdatablock(PoweredSwitchOffData);
-               %gate.flipped = 0;
-               return;
-            }
-            if(%gate.flipped == 0)
-            {
-               %gate.setdatablock(PoweredSwitchOnData);
-               %gate.flipped = 1;
-               return;
-            }
-         }
-      }
-   }
+	//Switching animation
+	function fxDTSBrick::onActivate(%gate, %player, %client, %globalhitpos, %unitvector)
+	{
+		parent::onActivate(%gate, %player, %client, %globalhitpos, %unitvector);
+		if(%gate.IsLogicBrick && %gate.IsGate)
+		{
+			if(%gate.GateName $= "SWITCH")
+			{
+				if(%gate.flipped)
+				{
+					%gate.setdatablock(PoweredSwitchOffData);
+					%gate.flipped = 0;
+				}
+				else
+				{
+					%gate.setdatablock(PoweredSwitchOnData);
+					%gate.flipped = 1;
+				}
+			}
+		}
+	}
 };
-activatepackage(LogicBrick_Functions);
+activatepackage("LogicBrick_Functions");
 
 //Parent
 exec("./bricks/special/poweredBrick.cs");
