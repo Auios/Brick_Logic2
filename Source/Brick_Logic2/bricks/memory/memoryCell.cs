@@ -60,7 +60,7 @@ datablock fxDTSBrickData (MemoryCellBrickOn2x2Data : MemoryCellBrickOff2x2Data)
 	IEName[2] = "Execute";
 	IEPos[2] = "0.25 0.25 0.0";
 	IEScale[2] = "0.5 0.5 0.16666";
-}
+};
 
 function MemoryCellBrickOff2x2Data::DoLog(%data, %gate, %statestack, %client)
 {
