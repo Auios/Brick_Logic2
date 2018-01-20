@@ -1,14 +1,7 @@
 //bricks.cs
 
 //POWER ELEMENT DATA
-datablock StaticShapeData(PowerElementShapeData)
-{
-	shapeFile = "base/data/shapes/empty.dts";
-	boxsize = "0.3 0.3 0.3";
-	IsLogicBrick = 1;
-};
-//INPUT ELEMENT DATA
-datablock StaticShapeData(InputElementShapeData)
+datablock StaticShapeData(LogicElementShapeData)
 {
 	shapeFile = "base/data/shapes/empty.dts";
 	boxsize = "0.3 0.3 0.3";
