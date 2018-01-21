@@ -95,7 +95,7 @@ datablock fxDTSBrickData (Ram16byteBrickData : Powerbrick1x1Data)//base
 	IEScale[9] = "0.5 0.5 0.16666";
 
 	//Clock
-	IEName[10] = "Clock";
+	IEName[10] = "Execute (Clock)";
 	IEPos[10] = "3.75 0.75 0.0";
 	IEScale[10] = "0.5 0.5 0.16666";
 
@@ -149,49 +149,3 @@ function Ram16byteBrickData::DoLog(%data,%gate,%statestack,%client)
 		}
 	}
 }
-
-
-//function Ram16byteBrickData::DoLog(%data,%gate,%statestack,%client)
-//{
-//	//first figure out the address
-//	%gate.currAddr = (%statestack.ins[11] * 1) + (%statestack.ins[12] * 2) + (%statestack.ins[13] * 4) + (%statestack.ins[14] * 8);
-//
-//	if(!%gate.IE[10].previousState && %statestack.ins[10])//positive clock edge.
-//	{
-//		if(%statestack.ins[8])//if write enable
-//		{
-//			%arrIdx = 0;
-//			%gate.data[%gate.currAddr,%arrIdx] = %statestack.ins[%arrIdx++];
-//			%gate.data[%gate.currAddr,%arrIdx] = %statestack.ins[%arrIdx++];
-//			%gate.data[%gate.currAddr,%arrIdx] = %statestack.ins[%arrIdx++];
-//			%gate.data[%gate.currAddr,%arrIdx] = %statestack.ins[%arrIdx++];
-//			%gate.data[%gate.currAddr,%arrIdx] = %statestack.ins[%arrIdx++];
-//			%gate.data[%gate.currAddr,%arrIdx] = %statestack.ins[%arrIdx++];
-//			%gate.data[%gate.currAddr,%arrIdx] = %statestack.ins[%arrIdx++];
-//			%gate.data[%gate.currAddr,%arrIdx] = %statestack.ins[%arrIdx++];
-//		}
-//		
-//		if(%statestack.ins[9])//read enabled
-//		{
-//			%arrIdx = 0;
-//			%gate.data[%arrIdx] = %gate.data[%gate.currAddr, %arrIdx++];
-//			%gate.data[%arrIdx] = %gate.data[%gate.currAddr, %arrIdx++];
-//			%gate.data[%arrIdx] = %gate.data[%gate.currAddr, %arrIdx++];
-//			%gate.data[%arrIdx] = %gate.data[%gate.currAddr, %arrIdx++];
-//			%gate.data[%arrIdx] = %gate.data[%gate.currAddr, %arrIdx++];
-//			%gate.data[%arrIdx] = %gate.data[%gate.currAddr, %arrIdx++];
-//			%gate.data[%arrIdx] = %gate.data[%gate.currAddr, %arrIdx++];
-//			%gate.data[%arrIdx] = %gate.data[%gate.currAddr, %arrIdx++];
-//		}
-//	}
-//
-//	%arrIdx = 0;
-//	SetPEPowered(%gate.PE[%arrIdx], %gate.data[%arrIdx++], %client);
-//	SetPEPowered(%gate.PE[%arrIdx], %gate.data[%arrIdx++], %client);
-//	SetPEPowered(%gate.PE[%arrIdx], %gate.data[%arrIdx++], %client);
-//	SetPEPowered(%gate.PE[%arrIdx], %gate.data[%arrIdx++], %client);
-//	SetPEPowered(%gate.PE[%arrIdx], %gate.data[%arrIdx++], %client);
-//	SetPEPowered(%gate.PE[%arrIdx], %gate.data[%arrIdx++], %client);
-//	SetPEPowered(%gate.PE[%arrIdx], %gate.data[%arrIdx++], %client);
-//	SetPEPowered(%gate.PE[%arrIdx], %gate.data[%arrIdx++], %client);
-//}*/
