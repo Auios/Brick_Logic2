@@ -51,10 +51,12 @@ exec("./bricks/special/poweredBrick.cs");
 
 //Wires
 exec("./bricks/wires/1x1.cs");
+exec("./bricks/wires/1x1x5.cs");
 exec("./bricks/wires/1x1f.cs");
 exec("./bricks/wires/1x2f.cs");
 exec("./bricks/wires/1x3f.cs");
 exec("./bricks/wires/1x4f.cs");
+exec("./bricks/wires/1x6f.cs");
 exec("./bricks/wires/wireGauge1x1f.cs");
 
 //Gates
