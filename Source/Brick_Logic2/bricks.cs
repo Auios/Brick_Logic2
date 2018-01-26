@@ -77,6 +77,8 @@ exec("./bricks/special/halfAdder.cs");
 exec("./bricks/special/fullAdder.cs");
 
 //Chips
+exec("./bricks/chips/4bitDecoder.cs");
+exec("./bricks/chips/4bitEncoder.cs");
 exec("./bricks/chips/7segDecoder.cs");
 
 //Memory

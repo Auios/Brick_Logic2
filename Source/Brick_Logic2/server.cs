@@ -29,3 +29,13 @@ if($VCE::Server::Version)
 exec("./bricks.cs"); 
 exec("./logic.cs"); 
 exec("./tips.cs"); 
+
+//Extra stuff
+
+function toBinary(%decimalNumber)
+{
+	if(!%decimalNumber)
+		return 0;
+	else
+		return (%decimalNumber % 2 + 10 * toBinary(%decimalNumber/2));
+}
