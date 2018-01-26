@@ -113,11 +113,11 @@ datablock fxDTSBrickData (Decoder4BitData : Powerbrick1x1Data)
 
 function Decoder4BitData::DoLog(%data,%gate,%statestack,%client)
 {
-	%currentValue = %statestack.ins[0] | %statestack.ins[1] << 1 | %statestack.ins[2] << 2 | %statestack.ins[3] << 3;
+	%gate.currentValue = %statestack.ins[0] | %statestack.ins[1] << 1 | %statestack.ins[2] << 2 | %statestack.ins[3] << 3;
     if(%currentValue != %gate.lastValue)
     {
         SetPEPowered(%gate.PE[%gate.lastValue], 0, %client);
-        SetPEPowered(%gate.lastValue = %gate.PE[%currentValue], 1, %client);
+        SetPEPowered(%gate.lastValue = %gate.PE[%gate.currentValue], 1, %client);
     }
-    %gate.lastValue = %currentValue;
+    %gate.lastValue = %gate.currentValue;
 }
