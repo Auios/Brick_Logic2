@@ -118,4 +118,5 @@ function Decoder4BitData::DoLog(%data,%gate,%statestack,%client)
         SetPEPowered(%gate.PE[%gate.lastValue], 0, %client);
         SetPEPowered(%gate.lastValue = %gate.PE[%currentValue], 1, %client);
     }
+    %gate.lastValue = %currentValue;
 }

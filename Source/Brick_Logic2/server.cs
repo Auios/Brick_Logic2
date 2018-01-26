@@ -32,10 +32,7 @@ exec("./tips.cs");
 
 //Extra stuff
 
-function toBinary(%decimalNumber)
+function getBinary(%decimalNumber, %position)
 {
-	if(!%decimalNumber)
-		return 0;
-	else
-		return (%decimalNumber % 2 + 10 * toBinary(%decimalNumber/2));
+	return (%decimalNumber >> %position) & 1;
 }
