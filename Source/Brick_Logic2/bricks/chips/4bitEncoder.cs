@@ -101,32 +101,17 @@ datablock fxDTSBrickData (Encoder4BitData : Powerbrick1x1Data)
 
 function Encoder4BitData::DoLog(%data,%gate,%statestack,%client)
 {
-	%i = 0;
+	%gate.currentValue = %statestack.ins[0]*0 | %statestack.ins[1]*1 | %statestack.ins[2]*2 | %statestack.ins[3]*3 |
+		%statestack.ins[4]*4 | %statestack.ins[5]*5 | %statestack.ins[6]*6 | %statestack.ins[7]*7 |
+		%statestack.ins[8]*8 | %statestack.ins[9]*9 | %statestack.ins[10]*10 | %statestack.ins[11]*11 |
+		%statestack.ins[12]*12 | %statestack.ins[13]*13 | %statestack.ins[14]*14 | %statestack.ins[15]*15;
 
-	if(%statestack.ins[%i]){%gate.currentValue=%statestack.ins[%i]<<%i;}%i++;
-	if(%statestack.ins[%i]){%gate.currentValue=%statestack.ins[%i]<<%i;}%i++;
-	if(%statestack.ins[%i]){%gate.currentValue=%statestack.ins[%i]<<%i;}%i++;
-	if(%statestack.ins[%i]){%gate.currentValue=%statestack.ins[%i]<<%i;}%i++;
-	if(%statestack.ins[%i]){%gate.currentValue=%statestack.ins[%i]<<%i;}%i++;
-	if(%statestack.ins[%i]){%gate.currentValue=%statestack.ins[%i]<<%i;}%i++;
-	if(%statestack.ins[%i]){%gate.currentValue=%statestack.ins[%i]<<%i;}%i++;
-	if(%statestack.ins[%i]){%gate.currentValue=%statestack.ins[%i]<<%i;}%i++;
-	if(%statestack.ins[%i]){%gate.currentValue=%statestack.ins[%i]<<%i;}%i++;
-	if(%statestack.ins[%i]){%gate.currentValue=%statestack.ins[%i]<<%i;}%i++;
-	if(%statestack.ins[%i]){%gate.currentValue=%statestack.ins[%i]<<%i;}%i++;
-	if(%statestack.ins[%i]){%gate.currentValue=%statestack.ins[%i]<<%i;}%i++;
-	if(%statestack.ins[%i]){%gate.currentValue=%statestack.ins[%i]<<%i;}%i++;
-	if(%statestack.ins[%i]){%gate.currentValue=%statestack.ins[%i]<<%i;}%i++;
-	if(%statestack.ins[%i]){%gate.currentValue=%statestack.ins[%i]<<%i;}%i++;
-	if(%statestack.ins[%i]){%gate.currentValue=%statestack.ins[%i]<<%i;}%i++;
-
-    if(%gate.currentValue != %gate.lastValue)
-    {
-        SetPEPowered(%gate.PE[0], (%gate.currentValue >> 0) & 1, %client);
-		SetPEPowered(%gate.PE[1], (%gate.currentValue >> 1) & 1, %client);
-		SetPEPowered(%gate.PE[2], (%gate.currentValue >> 2) & 1, %client);
-		SetPEPowered(%gate.PE[3], (%gate.currentValue >> 3) & 1, %client);
-    }
-
-    %gate.lastValue = %gate.currentValue;
+	if(%gate.lastValue != %gate.currentValue)
+	{
+		SetPEPowered(%gate.pe[0], %gate.currentValue & 1, %client);
+		SetPEPowered(%gate.pe[1], %gate.currentValue & 2, %client);
+		SetPEPowered(%gate.pe[2], %gate.currentValue & 4, %client);
+		SetPEPowered(%gate.pe[3], %gate.currentValue & 8, %client);
+		%gate.lastValue = %gate.currentValue;
+	}
 }
