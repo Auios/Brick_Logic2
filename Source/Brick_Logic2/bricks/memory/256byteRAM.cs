@@ -144,10 +144,18 @@ datablock fxDTSBrickData (Ram256byteBrickData : Powerbrick1x1Data)//base
 
 function Ram256byteBrickData::DoLog(%data,%gate,%statestack,%client)
 {
-	//first figure out the address
-	%gate.currAddr = (%statestack.ins[11] * 1) + (%statestack.ins[12] * 2) + (%statestack.ins[13] * 4) + (%statestack.ins[14] * 8);
+	//Get address
+	%gate.currAddr=
+			(%statestack.ins[11]*1)+
+			(%statestack.ins[12]*2)+
+			(%statestack.ins[13]*4)+
+			(%statestack.ins[14]*8)+
+			(%statestack.ins[15]*16)+
+			(%statestack.ins[16]*32)+
+			(%statestack.ins[17]*64)+
+			(%statestack.ins[18]*128);
 
-	if(!%gate.IE[10].previousState && %statestack.ins[10])//positive clock edge.
+	if(!%gate.IE[10].previousState && %statestack.ins[10])//positive clock edge
 	{
 		if(%statestack.ins[8])//if write enable
 		{
