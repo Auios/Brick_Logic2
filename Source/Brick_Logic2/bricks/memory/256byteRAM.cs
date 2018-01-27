@@ -2,14 +2,14 @@ datablock fxDTSBrickData (Ram16byteBrickData : Powerbrick1x1Data)//base
 {
 	category = "Logic Bricks";
 	subCategory = "Memory";
-	uiName = "16 byte RAM";
+	uiName = "256 byte RAM";
 	iconName = "base/client/ui/brickIcons/4x16f";
 	brickFile = "Add-Ons/Brick_Logic2/bricks/Gate4x16f.blb";
 	alwaysShowWireFrame = false;
 	IsLogicBrick = 1;
 	IsGate = 1;
-	GateName = "16 byte RAM";//so in code we can do special things
-	TipInfo = "Stores 16 8-bit words with read and write access";
+	GateName = "256 byte RAM";//so in code we can do special things
+	TipInfo = "Stores 256 8-bit words with read and write access";
 
 	///////////////////
 	ISINSTANT = 0;/////

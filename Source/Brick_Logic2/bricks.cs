@@ -82,5 +82,6 @@ exec("./bricks/chips/4bitEncoder.cs");
 exec("./bricks/chips/7segDecoder.cs");
 
 //Memory
-exec("./bricks/memory/16byteRAM.cs");
 exec("./bricks/memory/memoryCell.cs");
+exec("./bricks/memory/16byteRAM.cs");
+exec("./bricks/memory/256byteRAM.cs");
