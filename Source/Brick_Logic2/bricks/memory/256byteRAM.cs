@@ -1,4 +1,4 @@
-datablock fxDTSBrickData (Ram16byteBrickData : Powerbrick1x1Data)//base
+datablock fxDTSBrickData (Ram256byteBrickData : Powerbrick1x1Data)//base
 {
 	category = "Logic Bricks";
 	subCategory = "Memory";
@@ -59,7 +59,7 @@ datablock fxDTSBrickData (Ram16byteBrickData : Powerbrick1x1Data)//base
 	PEStart[7] = 0;	
 
 	//Main Inputs
-	numIE = 15;
+	numIE = 19;
 
 	IEName[0] = "In0";
 	IEPos[0] = "-0.25 -0.75 0.0";
@@ -124,9 +124,25 @@ datablock fxDTSBrickData (Ram16byteBrickData : Powerbrick1x1Data)//base
 	IEName[14] = "Address3";
 	IEPos[14] = "2.25 -0.75 0.0";
 	IEScale[14] = "0.5 0.5 0.16666";
+
+	IEName[15] = "Address4";
+	IEPos[15] = "1.75 -0.75 0.0";
+	IEScale[15] = "0.5 0.5 0.16666";
+
+	IEName[16] = "Address5";
+	IEPos[16] = "1.25 -0.75 0.0";
+	IEScale[16] = "0.5 0.5 0.16666";
+
+	IEName[17] = "Address6";
+	IEPos[17] = "0.75 -0.75 0.0";
+	IEScale[17] = "0.5 0.5 0.16666";
+
+	IEName[18] = "Address7";
+	IEPos[18] = "0.25 -0.75 0.0";
+	IEScale[18] = "0.5 0.5 0.16666";
 };
 
-function Ram16byteBrickData::DoLog(%data,%gate,%statestack,%client)
+function Ram256byteBrickData::DoLog(%data,%gate,%statestack,%client)
 {
 	//first figure out the address
 	%gate.currAddr = (%statestack.ins[11] * 1) + (%statestack.ins[12] * 2) + (%statestack.ins[13] * 4) + (%statestack.ins[14] * 8);
