@@ -10,7 +10,7 @@ datablock fxDTSBrickData (Decoder4BitData : Powerbrick1x1Data)
 	GateName = "4bit Decoder";
 	TipInfo = "Converts 4bit binary to their own respective outputs 0 - 15";
 
-	numIE = 4;
+	numIE = 5;
 
 	IEName[0] = "In0"; //Right most
 	IEPos[0] = "3.75 -0.75 0";
@@ -27,6 +27,10 @@ datablock fxDTSBrickData (Decoder4BitData : Powerbrick1x1Data)
 	IEName[3] = "In3"; 
 	IEPos[3] = "2.25 -0.75 0";
 	IEScale[3] = "0.5 0.5 0.16666";
+
+	IEName[4] = "Disable"; 
+	IEPos[4] = "1.25 -0.75 0";
+	IEScale[4] = "0.5 0.5 0.16666";
 
 	numPE = 16;
 
@@ -114,10 +118,15 @@ datablock fxDTSBrickData (Decoder4BitData : Powerbrick1x1Data)
 function Decoder4BitData::DoLog(%data,%gate,%statestack,%client)
 {
 	%gate.currentValue = %statestack.ins[0] | %statestack.ins[1] << 1 | %statestack.ins[2] << 2 | %statestack.ins[3] << 3;
-    if(%gate.currentValue != %gate.lastValue)
+
+	if(!%statestack.ins[4])
+	{
+        SetPEPowered(%gate.PE[%gate.lastValue+0], 0, %client);
+        SetPEPowered(%gate.lastValue = %gate.PE[%gate.currentValue+0], 1, %client);
+        %gate.lastValue = %gate.currentValue;
+	}
+    else
     {
-        SetPEPowered(%gate.PE[%gate.lastValue], 0, %client);
-        SetPEPowered(%gate.lastValue = %gate.PE[%gate.currentValue], 1, %client);
+    	SetPEPowered(%gate.PE[%gate.lastValue+0], 0, %client);
     }
-    %gate.lastValue = %gate.currentValue;
 }
