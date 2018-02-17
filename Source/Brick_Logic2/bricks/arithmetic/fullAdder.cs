@@ -34,20 +34,9 @@ datablock fxDTSBrickData (FullAdderBrick2x3Data : Powerbrick1x1Data)
 
 function FullAdderBrick2x3Data::DoLog(%data, %gate, %statestack, %client)
 {
-	%sum = %statestack.ins[0] + %statestack.ins[1] + %statestack.ins[2];
-	switch(%sum)
-	{
-		case 0:
-			SetPEPowered(%gate.PE[0], 0, %client);
-			SetPEPowered(%gate.PE[1], 0, %client);
-		case 1:
-			SetPEPowered(%gate.PE[0], 0, %client);
-			SetPEPowered(%gate.PE[1], 1, %client);
-		case 2:
-			SetPEPowered(%gate.PE[0], 1, %client);
-			SetPEPowered(%gate.PE[1], 0, %client);
-		case 3:
-			SetPEPowered(%gate.PE[0], 1, %client);
-			SetPEPowered(%gate.PE[1], 1, %client);
-	}
+	//Carry out
+	SetPEPowered(%gate.PE[0], (%statestack.ins[1] && %statestack.ins[2]) || (%statestack.ins[0] && %statestack.ins[2]) || (%statestack.ins[0] && %statestack.ins[1]), %client);
+
+	//Sum
+	SetPEPowered(%gate.PE[1], %statestack.ins[0] ^ (%statestack.ins[1] ^ %statestack.ins[2]), %client);
 }

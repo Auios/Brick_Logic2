@@ -37,17 +37,9 @@ datablock fxDTSBrickData (HalfAdderBrick2x2Data : Powerbrick1x1Data)
 
 function HalfAdderBrick2x2Data::DoLog(%data, %gate, %statestack, %client)
 {
-	%sum = %statestack.ins[0] + %statestack.ins[1];
-	switch(%sum)
-	{
-		case 0:
-			SetPEPowered(%gate.PE[0], 0, %client);
-			SetPEPowered(%gate.PE[1], 0, %client);
-		case 1:
-			SetPEPowered(%gate.PE[0], 1, %client);
-			SetPEPowered(%gate.PE[1], 0, %client);
-		case 2:
-			SetPEPowered(%gate.PE[0], 0, %client);
-			SetPEPowered(%gate.PE[1], 1, %client);
-	}
+	//Sum
+	SetPEPowered(%gate.PE[0], %statestack.ins[0] ^ %statestack.ins[1], %client);
+
+	//Carry
+	SetPEPowered(%gate.PE[1], %statestack.ins[0] && %statestack.ins[1], %client);
 }
