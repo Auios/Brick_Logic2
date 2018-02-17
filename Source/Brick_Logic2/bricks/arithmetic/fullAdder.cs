@@ -1,7 +1,7 @@
 datablock fxDTSBrickData (FullAdderBrick2x3Data : Powerbrick1x1Data)
 {
 	category = "Logic Bricks";
-	subCategory = "Special";
+	subCategory = "Arithmetic";
 	uiName = "Full Adder";
 	iconName = "base/client/ui/brickIcons/2x3f";
 	brickFile = "Add-Ons/Brick_Logic2/bricks/Gate2x3f.blb";

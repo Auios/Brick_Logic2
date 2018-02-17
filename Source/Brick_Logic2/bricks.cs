@@ -71,10 +71,14 @@ exec("./bricks/gates/nor.cs");
 exec("./bricks/inputs/switch.cs");
 exec("./bricks/inputs/button.cs");
 
+//Arithmetic
+exec("./bricks/arithmetic/halfAdder.cs");
+exec("./bricks/arithmetic/fullAdder.cs");
+exec("./bricks/arithmetic/halfSubtractor.cs");
+exec("./bricks/arithmetic/fullSubtractor.cs");
+
 //Special
 exec("./bricks/special/diode.cs");
-exec("./bricks/special/halfAdder.cs");
-exec("./bricks/special/fullAdder.cs");
 
 //Chips
 exec("./bricks/chips/4bitDecoder.cs");

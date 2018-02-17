@@ -1,7 +1,7 @@
 datablock fxDTSBrickData (HalfAdderBrick2x2Data : Powerbrick1x1Data)
 {
 	category = "Logic Bricks";
-	subCategory = "Special";
+	subCategory = "Arithmetic";
 	uiName = "Half Adder";
 	iconName = "base/client/ui/brickIcons/2x2f";
 	brickFile = "Add-Ons/Brick_Logic2/bricks/Gate2x2f.blb";
