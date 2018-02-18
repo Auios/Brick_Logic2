@@ -85,6 +85,8 @@ exec("./bricks/arithmetic/8bitDivisor.cs");
 //Special
 exec("./bricks/special/diode.cs");
 exec("./bricks/special/8bitEnabler.cs");
+exec("./bricks/special/pixelLow.cs");
+exec("./bricks/special/pixelHigh.cs");
 
 //Chips
 exec("./bricks/chips/4bitDecoder.cs");

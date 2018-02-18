@@ -2,20 +2,20 @@ datablock fxDTSBrickData (PixelLowBrick1x2Data : Powerbrick1x1Data)
 {
 	category = "Logic Bricks";
 	subCategory = "Special";
-	uiName = "PixelHigh";
+	uiName = "Pixel Low";
 	brickFile = "base/data/bricks/bricks/1x2.blb";
 	iconName = "base/client/ui/brickIcons/1x2";
 	alwaysShowWireFrame = false;
 	IsLogicBrick = 1;
 	IsGate = 1;
-	GateName = "Pixel_High";
+	GateName = "Pixel_Low";
 	TipInfo = "";
 	ISINSTANT = 0;
 	numPE = 0;
 
 	numIE = 1;
 	IEName[0] = "Input";
-	IEPos[0] = "0 -0.25 0";
+	IEPos[0] = "-0.25 0 -0.2";
 	IEScale[0] = "0.5 0.5 0.16666";
 };
 
