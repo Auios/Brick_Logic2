@@ -78,10 +78,13 @@ exec("./bricks/arithmetic/halfSubtractor.cs");
 exec("./bricks/arithmetic/fullSubtractor.cs");
 
 exec("./bricks/arithmetic/8bitAdder.cs");
+exec("./bricks/arithmetic/8bitSubtractor.cs");
 exec("./bricks/arithmetic/8bitMultiplier.cs");
+exec("./bricks/arithmetic/8bitDivisor.cs");
 
 //Special
 exec("./bricks/special/diode.cs");
+exec("./bricks/special/8bitEnabler.cs");
 
 //Chips
 exec("./bricks/chips/4bitDecoder.cs");

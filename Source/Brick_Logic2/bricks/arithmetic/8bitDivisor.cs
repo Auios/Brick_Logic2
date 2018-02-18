@@ -1,58 +1,98 @@
-datablock fxDTSBrickData (Multiplier8bitBrick4x16Data : Powerbrick1x1Data)
+datablock fxDTSBrickData (Divisor8bitBrick4x16Data : Powerbrick1x1Data)
 {
 	category = "Logic Bricks";
 	subCategory = "Arithmetic";
-	uiName = "8bit Multiplier";
+	uiName = "8bit Divisor";
 	iconName = "base/client/ui/brickIcons/4x16f";
 	brickFile = "Add-Ons/Brick_Logic2/bricks/Gate4x16f.blb";
 	alwaysShowWireFrame = false;
 	IsLogicBrick = 1;
 	IsGate = 1;
-	GateName = "8bit Multiplier";
-	TipInfo = "Multiplies 8bit A and 8bit B together and produces a product";
+	GateName = "8bit Divisor";
+	TipInfo = "Divides A by B";
 	ISINSTANT = 0;
 
-	numPE = 8;
+	numPE = 16;
 
-	PEName[0] = "Out0";
+	PEName[0] = "Quotient0";
 	PEPos[0] = "-0.25 0.75 0.0";
 	PEScale[0] = "0.5 0.5 0.16666";
 	PEStart[0] = 0;	
 
-	PEName[1] = "Out1";
+	PEName[1] = "Quotient1";
 	PEPos[1] = "-0.75 0.75 0.0";
 	PEScale[1] = "0.5 0.5 0.16666";
 	PEStart[1] = 0;	
 
-	PEName[2] = "Out2";
+	PEName[2] = "Quotient2";
 	PEPos[2] = "-1.25 0.75 0.0";
 	PEScale[2] = "0.5 0.5 0.16666";
 	PEStart[2] = 0;	
 
-	PEName[3] = "Out3";
+	PEName[3] = "Quotient3";
 	PEPos[3] = "-1.75 0.75 0.0";
 	PEScale[3] = "0.5 0.5 0.16666";
 	PEStart[3] = 0;	
 
-	PEName[4] = "Out4";
+	PEName[4] = "Quotient4";
 	PEPos[4] = "-2.25 0.75 0.0";
 	PEScale[4] = "0.5 0.5 0.16666";
 	PEStart[4] = 0;	
 
-	PEName[5] = "Out5";
+	PEName[5] = "Quotient5";
 	PEPos[5] = "-2.75 0.75 0.0";
 	PEScale[5] = "0.5 0.5 0.16666";
 	PEStart[5] = 0;	
 
-	PEName[6] = "Out6";
+	PEName[6] = "Quotient6";
 	PEPos[6] = "-3.25 0.75 0.0";
 	PEScale[6] = "0.5 0.5 0.16666";
 	PEStart[6] = 0;	
 
-	PEName[7] = "Out7";
+	PEName[7] = "Quotient7";
 	PEPos[7] = "-3.75 0.75 0.0";
 	PEScale[7] = "0.5 0.5 0.16666";
 	PEStart[7] = 0;
+
+	PEName[8] = "Remainder0";
+	PEPos[8] = "0.25 0.75 0.0";
+	PEScale[8] = "0.5 0.5 0.16666";
+	PEStart[8] = 0;	
+
+	PEName[9] = "Remainder1";
+	PEPos[9] = "0.75 0.75 0.0";
+	PEScale[9] = "0.5 0.5 0.16666";
+	PEStart[9] = 0;	
+
+	PEName[10] = "Remainder2";
+	PEPos[10] = "1.25 0.75 0.0";
+	PEScale[10] = "0.5 0.5 0.16666";
+	PEStart[10] = 0;	
+
+	PEName[11] = "Remainder3";
+	PEPos[11] = "1.75 0.75 0.0";
+	PEScale[11] = "0.5 0.5 0.16666";
+	PEStart[11] = 0;	
+
+	PEName[12] = "Remainder4";
+	PEPos[12] = "2.25 0.75 0.0";
+	PEScale[12] = "0.5 0.5 0.16666";
+	PEStart[12] = 0;	
+
+	PEName[13] = "Remainder5";
+	PEPos[13] = "2.75 0.75 0.0";
+	PEScale[13] = "0.5 0.5 0.16666";
+	PEStart[13] = 0;	
+
+	PEName[14] = "Remainder6";
+	PEPos[14] = "3.25 0.75 0.0";
+	PEScale[14] = "0.5 0.5 0.16666";
+	PEStart[14] = 0;	
+
+	PEName[15] = "Remainder7";
+	PEPos[15] = "3.75 0.75 0.0";
+	PEScale[15] = "0.5 0.5 0.16666";
+	PEStart[15] = 0;
 
 	numIE = 16;
 
@@ -121,7 +161,7 @@ datablock fxDTSBrickData (Multiplier8bitBrick4x16Data : Powerbrick1x1Data)
 	IEScale[15] = "0.5 0.5 0.16666";
 };
 
-function Multiplier8bitBrick4x16Data::DoLog(%data, %gate, %statestack, %client)
+function Adder8bitBrick4x16Data::DoLog(%data, %gate, %statestack, %client)
 {
 	%valueA =
 		%statestack.ins[0] +
@@ -143,44 +183,8 @@ function Multiplier8bitBrick4x16Data::DoLog(%data, %gate, %statestack, %client)
 		(%statestack.ins[14] * 64) +
 		(%statestack.ins[15] * 128);
 
-	%finalValue = %valueA * %valueB;
-
-	//%temp = 1;
-	//for(%i=0;%i<8;i++)
-	//{
-	//	if((%gate.finalValue & %temp) > 0)
-	//	{
-	//		SetPEPowered(%gate.PE[%i], 1, %client);
-	//	}
-	//	else
-	//	{
-	//		SetPEPowered(%gate.PE[%i], 0, %client);
-	//	}
-	//}
-
-	//for(%i=0;%i<8;i++)
-	//{
-	//	if((%gate.finalValue & mPow(2,%i)) > 0)
-	//	{
-	//		SetPEPowered(%gate.PE[%i], 1, %client);
-	//	}
-	//	else
-	//	{
-	//		SetPEPowered(%gate.PE[%i], 0, %client);
-	//	}
-	//}
-
-	//%temp = 1;
-	//for(%i=0;%i<8;i++)
-	//{
-	//	SetPEPowered(%gate.PE[%i], (%gate.finalValue & %temp > 0), %client);
-	//	%temp<<=1;
-	//}
-
-	//for(%i=0;%i<8;i++)
-    //{
-    //    SetPEPowered(%gate.PE[%i], (%finalValue & (1 << %i) > 0), %client);
-    //}
+	%quotient = mFloor(%valueA / %valueB);
+	%remainder = %valueA-%quotient*%valueB;
 
     SetPEPowered(%gate.PE[0], %finalValue & 1, %client);
     SetPEPowered(%gate.PE[1], %finalValue & 2, %client);
@@ -190,4 +194,13 @@ function Multiplier8bitBrick4x16Data::DoLog(%data, %gate, %statestack, %client)
     SetPEPowered(%gate.PE[5], %finalValue & 32, %client);
     SetPEPowered(%gate.PE[6], %finalValue & 64, %client);
     SetPEPowered(%gate.PE[7], %finalValue & 128, %client);
+
+    SetPEPowered(%gate.PE[8], %finalValue & 1, %client);
+    SetPEPowered(%gate.PE[9], %finalValue & 2, %client);
+    SetPEPowered(%gate.PE[10], %finalValue & 4, %client);
+    SetPEPowered(%gate.PE[11], %finalValue & 8, %client);
+    SetPEPowered(%gate.PE[12], %finalValue & 16, %client);
+    SetPEPowered(%gate.PE[13], %finalValue & 32, %client);
+    SetPEPowered(%gate.PE[14], %finalValue & 64, %client);
+    SetPEPowered(%gate.PE[15], %finalValue & 128, %client);
 }

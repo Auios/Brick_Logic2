@@ -2,13 +2,13 @@ datablock fxDTSBrickData (Adder8bitBrick4x16Data : Powerbrick1x1Data)
 {
 	category = "Logic Bricks";
 	subCategory = "Arithmetic";
-	uiName = "8bit Addition";
-	iconName = "base/client/ui/brickIcons/2x3f";
+	uiName = "8bit Adder";
+	iconName = "base/client/ui/brickIcons/4x16f";
 	brickFile = "Add-Ons/Brick_Logic2/bricks/Gate4x16f.blb";
 	alwaysShowWireFrame = false;
 	IsLogicBrick = 1;
 	IsGate = 1;
-	GateName = "8bit Multiplier";
+	GateName = "8bit Adder";
 	TipInfo = "Adds 8bit A and 8bit B together and produces a sum";
 	ISINSTANT = 0;
 

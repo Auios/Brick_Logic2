@@ -1,15 +1,15 @@
-datablock fxDTSBrickData (Multiplier8bitBrick4x16Data : Powerbrick1x1Data)
+datablock fxDTSBrickData (Subtractor8bitBrick4x16Data : Powerbrick1x1Data)
 {
 	category = "Logic Bricks";
 	subCategory = "Arithmetic";
-	uiName = "8bit Multiplier";
+	uiName = "8bit Subtractor";
 	iconName = "base/client/ui/brickIcons/4x16f";
 	brickFile = "Add-Ons/Brick_Logic2/bricks/Gate4x16f.blb";
 	alwaysShowWireFrame = false;
 	IsLogicBrick = 1;
 	IsGate = 1;
-	GateName = "8bit Multiplier";
-	TipInfo = "Multiplies 8bit A and 8bit B together and produces a product";
+	GateName = "8bit Subtractor";
+	TipInfo = "Subtracts B from A";
 	ISINSTANT = 0;
 
 	numPE = 8;
@@ -121,7 +121,7 @@ datablock fxDTSBrickData (Multiplier8bitBrick4x16Data : Powerbrick1x1Data)
 	IEScale[15] = "0.5 0.5 0.16666";
 };
 
-function Multiplier8bitBrick4x16Data::DoLog(%data, %gate, %statestack, %client)
+function Subtractor8bitBrick4x16Data::DoLog(%data, %gate, %statestack, %client)
 {
 	%valueA =
 		%statestack.ins[0] +
@@ -143,44 +143,7 @@ function Multiplier8bitBrick4x16Data::DoLog(%data, %gate, %statestack, %client)
 		(%statestack.ins[14] * 64) +
 		(%statestack.ins[15] * 128);
 
-	%finalValue = %valueA * %valueB;
-
-	//%temp = 1;
-	//for(%i=0;%i<8;i++)
-	//{
-	//	if((%gate.finalValue & %temp) > 0)
-	//	{
-	//		SetPEPowered(%gate.PE[%i], 1, %client);
-	//	}
-	//	else
-	//	{
-	//		SetPEPowered(%gate.PE[%i], 0, %client);
-	//	}
-	//}
-
-	//for(%i=0;%i<8;i++)
-	//{
-	//	if((%gate.finalValue & mPow(2,%i)) > 0)
-	//	{
-	//		SetPEPowered(%gate.PE[%i], 1, %client);
-	//	}
-	//	else
-	//	{
-	//		SetPEPowered(%gate.PE[%i], 0, %client);
-	//	}
-	//}
-
-	//%temp = 1;
-	//for(%i=0;%i<8;i++)
-	//{
-	//	SetPEPowered(%gate.PE[%i], (%gate.finalValue & %temp > 0), %client);
-	//	%temp<<=1;
-	//}
-
-	//for(%i=0;%i<8;i++)
-    //{
-    //    SetPEPowered(%gate.PE[%i], (%finalValue & (1 << %i) > 0), %client);
-    //}
+	%finalValue = %valueA - %valueB;
 
     SetPEPowered(%gate.PE[0], %finalValue & 1, %client);
     SetPEPowered(%gate.PE[1], %finalValue & 2, %client);
