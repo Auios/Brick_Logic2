@@ -186,21 +186,21 @@ function Adder8bitBrick4x16Data::DoLog(%data, %gate, %statestack, %client)
 	%quotient = mFloor(%valueA / %valueB);
 	%remainder = %valueA-%quotient*%valueB;
 
-    SetPEPowered(%gate.PE[0], %finalValue & 1, %client);
-    SetPEPowered(%gate.PE[1], %finalValue & 2, %client);
-    SetPEPowered(%gate.PE[2], %finalValue & 4, %client);
-    SetPEPowered(%gate.PE[3], %finalValue & 8, %client);
-    SetPEPowered(%gate.PE[4], %finalValue & 16, %client);
-    SetPEPowered(%gate.PE[5], %finalValue & 32, %client);
-    SetPEPowered(%gate.PE[6], %finalValue & 64, %client);
-    SetPEPowered(%gate.PE[7], %finalValue & 128, %client);
+    SetPEPowered(%gate.PE[0], %quotient & 1, %client);
+    SetPEPowered(%gate.PE[1], %quotient & 2, %client);
+    SetPEPowered(%gate.PE[2], %quotient & 4, %client);
+    SetPEPowered(%gate.PE[3], %quotient & 8, %client);
+    SetPEPowered(%gate.PE[4], %quotient & 16, %client);
+    SetPEPowered(%gate.PE[5], %quotient & 32, %client);
+    SetPEPowered(%gate.PE[6], %quotient & 64, %client);
+    SetPEPowered(%gate.PE[7], %quotient & 128, %client);
 
-    SetPEPowered(%gate.PE[8], %finalValue & 1, %client);
-    SetPEPowered(%gate.PE[9], %finalValue & 2, %client);
-    SetPEPowered(%gate.PE[10], %finalValue & 4, %client);
-    SetPEPowered(%gate.PE[11], %finalValue & 8, %client);
-    SetPEPowered(%gate.PE[12], %finalValue & 16, %client);
-    SetPEPowered(%gate.PE[13], %finalValue & 32, %client);
-    SetPEPowered(%gate.PE[14], %finalValue & 64, %client);
-    SetPEPowered(%gate.PE[15], %finalValue & 128, %client);
+    SetPEPowered(%gate.PE[8], %remainder & 1, %client);
+    SetPEPowered(%gate.PE[9], %remainder & 2, %client);
+    SetPEPowered(%gate.PE[10], %remainder & 4, %client);
+    SetPEPowered(%gate.PE[11], %remainder & 8, %client);
+    SetPEPowered(%gate.PE[12], %remainder & 16, %client);
+    SetPEPowered(%gate.PE[13], %remainder & 32, %client);
+    SetPEPowered(%gate.PE[14], %remainder & 64, %client);
+    SetPEPowered(%gate.PE[15], %remainder & 128, %client);
 }
