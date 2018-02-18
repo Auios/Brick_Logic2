@@ -12,7 +12,7 @@ datablock fxDTSBrickData (Divisor8bitBrick4x16Data : Powerbrick1x1Data)
 	TipInfo = "Divides A by B";
 	ISINSTANT = 0;
 
-	numPE = 16;
+	numPE = 17;
 
 	PEName[0] = "Quotient0";
 	PEPos[0] = "-0.25 0.75 0.0";
@@ -55,44 +55,49 @@ datablock fxDTSBrickData (Divisor8bitBrick4x16Data : Powerbrick1x1Data)
 	PEStart[7] = 0;
 
 	PEName[8] = "Remainder0";
-	PEPos[8] = "0.25 0.75 0.0";
+	PEPos[8] = "3.75 0.75 0.0";
 	PEScale[8] = "0.5 0.5 0.16666";
 	PEStart[8] = 0;	
 
 	PEName[9] = "Remainder1";
-	PEPos[9] = "0.75 0.75 0.0";
+	PEPos[9] = "3.25 0.75 0.0";
 	PEScale[9] = "0.5 0.5 0.16666";
 	PEStart[9] = 0;	
 
 	PEName[10] = "Remainder2";
-	PEPos[10] = "1.25 0.75 0.0";
+	PEPos[10] = "2.75 0.75 0.0";
 	PEScale[10] = "0.5 0.5 0.16666";
 	PEStart[10] = 0;	
 
 	PEName[11] = "Remainder3";
-	PEPos[11] = "1.75 0.75 0.0";
+	PEPos[11] = "2.25 0.75 0.0";
 	PEScale[11] = "0.5 0.5 0.16666";
 	PEStart[11] = 0;	
 
 	PEName[12] = "Remainder4";
-	PEPos[12] = "2.25 0.75 0.0";
+	PEPos[12] = "1.75 0.75 0.0";
 	PEScale[12] = "0.5 0.5 0.16666";
 	PEStart[12] = 0;	
 
 	PEName[13] = "Remainder5";
-	PEPos[13] = "2.75 0.75 0.0";
+	PEPos[13] = "1.25 0.75 0.0";
 	PEScale[13] = "0.5 0.5 0.16666";
 	PEStart[13] = 0;	
 
 	PEName[14] = "Remainder6";
-	PEPos[14] = "3.25 0.75 0.0";
+	PEPos[14] = "0.75 0.75 0.0";
 	PEScale[14] = "0.5 0.5 0.16666";
 	PEStart[14] = 0;	
 
 	PEName[15] = "Remainder7";
-	PEPos[15] = "3.75 0.75 0.0";
+	PEPos[15] = "0.25 0.75 0.0";
 	PEScale[15] = "0.5 0.5 0.16666";
 	PEStart[15] = 0;
+
+	PEName[16] = "Error";
+	PEPos[16] = "3.75 0.25 0.0";
+	PEScale[16] = "0.5 0.5 0.16666";
+	PEStart[16] = 0;
 
 	numIE = 16;
 
@@ -161,7 +166,7 @@ datablock fxDTSBrickData (Divisor8bitBrick4x16Data : Powerbrick1x1Data)
 	IEScale[15] = "0.5 0.5 0.16666";
 };
 
-function Adder8bitBrick4x16Data::DoLog(%data, %gate, %statestack, %client)
+function Divisor8bitBrick4x16Data::DoLog(%data, %gate, %statestack, %client)
 {
 	%valueA =
 		%statestack.ins[0] +
@@ -183,24 +188,51 @@ function Adder8bitBrick4x16Data::DoLog(%data, %gate, %statestack, %client)
 		(%statestack.ins[14] * 64) +
 		(%statestack.ins[15] * 128);
 
-	%quotient = mFloor(%valueA / %valueB);
-	%remainder = %valueA-%quotient*%valueB;
+	if(%valueB)
+	{
+		%quotient = mFloor(%valueA / %valueB);
+		%remainder = %valueA-%quotient*%valueB;
 
-    SetPEPowered(%gate.PE[0], %quotient & 1, %client);
-    SetPEPowered(%gate.PE[1], %quotient & 2, %client);
-    SetPEPowered(%gate.PE[2], %quotient & 4, %client);
-    SetPEPowered(%gate.PE[3], %quotient & 8, %client);
-    SetPEPowered(%gate.PE[4], %quotient & 16, %client);
-    SetPEPowered(%gate.PE[5], %quotient & 32, %client);
-    SetPEPowered(%gate.PE[6], %quotient & 64, %client);
-    SetPEPowered(%gate.PE[7], %quotient & 128, %client);
+	    SetPEPowered(%gate.PE[0], %quotient & 1, %client);
+	    SetPEPowered(%gate.PE[1], %quotient & 2, %client);
+	    SetPEPowered(%gate.PE[2], %quotient & 4, %client);
+	    SetPEPowered(%gate.PE[3], %quotient & 8, %client);
+	    SetPEPowered(%gate.PE[4], %quotient & 16, %client);
+	    SetPEPowered(%gate.PE[5], %quotient & 32, %client);
+	    SetPEPowered(%gate.PE[6], %quotient & 64, %client);
+	    SetPEPowered(%gate.PE[7], %quotient & 128, %client);
 
-    SetPEPowered(%gate.PE[8], %remainder & 1, %client);
-    SetPEPowered(%gate.PE[9], %remainder & 2, %client);
-    SetPEPowered(%gate.PE[10], %remainder & 4, %client);
-    SetPEPowered(%gate.PE[11], %remainder & 8, %client);
-    SetPEPowered(%gate.PE[12], %remainder & 16, %client);
-    SetPEPowered(%gate.PE[13], %remainder & 32, %client);
-    SetPEPowered(%gate.PE[14], %remainder & 64, %client);
-    SetPEPowered(%gate.PE[15], %remainder & 128, %client);
+	    SetPEPowered(%gate.PE[8], %remainder & 1, %client);
+	    SetPEPowered(%gate.PE[9], %remainder & 2, %client);
+	    SetPEPowered(%gate.PE[10], %remainder & 4, %client);
+	    SetPEPowered(%gate.PE[11], %remainder & 8, %client);
+	    SetPEPowered(%gate.PE[12], %remainder & 16, %client);
+	    SetPEPowered(%gate.PE[13], %remainder & 32, %client);
+	    SetPEPowered(%gate.PE[14], %remainder & 64, %client);
+	    SetPEPowered(%gate.PE[15], %remainder & 128, %client);
+
+	    SetPEPowered(%gate.PE[16], 0, %client);
+	}
+	else
+	{
+	    SetPEPowered(%gate.PE[0], 0, %client);
+	    SetPEPowered(%gate.PE[1], 0, %client);
+	    SetPEPowered(%gate.PE[2], 0, %client);
+	    SetPEPowered(%gate.PE[3], 0, %client);
+	    SetPEPowered(%gate.PE[4], 0, %client);
+	    SetPEPowered(%gate.PE[5], 0, %client);
+	    SetPEPowered(%gate.PE[6], 0, %client);
+	    SetPEPowered(%gate.PE[7], 0, %client);
+
+	    SetPEPowered(%gate.PE[8], 0, %client);
+	    SetPEPowered(%gate.PE[9], 0, %client);
+	    SetPEPowered(%gate.PE[10], 0, %client);
+	    SetPEPowered(%gate.PE[11], 0, %client);
+	    SetPEPowered(%gate.PE[12], 0, %client);
+	    SetPEPowered(%gate.PE[13], 0, %client);
+	    SetPEPowered(%gate.PE[14], 0, %client);
+	    SetPEPowered(%gate.PE[15], 0, %client);
+
+	    SetPEPowered(%gate.PE[16], 1, %client);
+	}
 }
