@@ -77,6 +77,9 @@ exec("./bricks/arithmetic/fullAdder.cs");
 exec("./bricks/arithmetic/halfSubtractor.cs");
 exec("./bricks/arithmetic/fullSubtractor.cs");
 
+exec("./bricks/arithmetic/8bitAdder.cs");
+exec("./bricks/arithmetic/8bitMultiplier.cs");
+
 //Special
 exec("./bricks/special/diode.cs");
 
