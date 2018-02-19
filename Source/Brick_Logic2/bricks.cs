@@ -106,6 +106,14 @@ exec("./bricks/memory/256byteRAM.cs");
 ////BUS//////
 /////////////
 
+//Gates
+exec("./bricks/bus/gates/busAnd.cs");
+exec("./bricks/bus/gates/busOr.cs");
+exec("./bricks/bus/gates/busXor.cs");
+exec("./bricks/bus/gates/busNot.cs");
+exec("./bricks/bus/gates/busNand.cs");
+exec("./bricks/bus/gates/busNor.cs");
+
 //Arithmetic
 exec("./bricks/bus/arithmetic/adder.cs");
 exec("./bricks/bus/arithmetic/subtractor.cs");
@@ -115,6 +123,8 @@ exec("./bricks/bus/arithmetic/divisor.cs");
 //Math
 exec("./bricks/bus/math/mFloor.cs");
 exec("./bricks/bus/math/mCeil.cs");
+exec("./bricks/bus/math/mAbs.cs");
+exec("./bricks/bus/math/mFloatLength.cs");
 
 //Conditional
 exec("./bricks/bus/conditional/equal.cs");

@@ -27,5 +27,5 @@ datablock fxDTSBrickData (NORBrick2x2Data : Powerbrick1x1Data)//base
 
 function NORBrick2x2Data::DoLog(%data, %gate, %statestack, %client)
 {
-	SetPEPowered(%gate.PE[0], not(%statestack.ins[0] | %statestack.ins[1]), %client);
+	SetPEPowered(%gate.PE[0], !((%statestack.ins[0] > 0) || (%statestack.ins[1] > 0)), %client);
 }

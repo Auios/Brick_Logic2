@@ -1,15 +1,15 @@
-datablock fxDTSBrickData (XORBrick2x2Data : Powerbrick1x1Data)//base
+datablock fxDTSBrickData (busXORBrick2x2Data : Powerbrick1x1Data)//base
 {
-	category = "Logic Bricks";
-	subCategory = "Logic Gates";
-	uiName = "XOR Gate";
+	category = "Bus Bricks";
+	subCategory = "Basic Gates";
+	uiName = "Bus XOR Gate";
 	iconName = "base/client/ui/brickIcons/2x2f";
 	brickFile = "Add-Ons/Brick_Logic2/bricks/Gate2x2f.blb";
 	alwaysShowWireFrame = false;
 	IsLogicBrick = 1;
 	IsGate = 1;
-	GateName = "XOR Gate";//so in code we can do special things
-	TipInfo = "Ouputs true when either A or B are true\nbut false when both A and B are true or false";
+	GateName = "Bus XOR Gate";//so in code we can do special things
+	TipInfo = "Bitwise XOR";
 
 	numPE = 1;
 	PEName[0] = "Output";
@@ -25,7 +25,7 @@ datablock fxDTSBrickData (XORBrick2x2Data : Powerbrick1x1Data)//base
 	IEScale[1] = "0.5 0.5 0.16666";
 };
 
-function XORBrick2x2Data::DoLog(%data, %gate, %statestack, %client)
+function busXORBrick2x2Data::DoLog(%data, %gate, %statestack, %client)
 {
-	SetPEPowered(%gate.PE[0], (%statestack.ins[0] > 0) ^ (%statestack.ins[1] > 0), %client);
+	SetPEPowered(%gate.PE[0], (%statestack.ins[0] | %statestack.ins[1]) & not(%statestack.ins[0] & %statestack.ins[1]), %client);
 }

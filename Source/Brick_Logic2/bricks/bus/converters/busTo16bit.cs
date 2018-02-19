@@ -103,20 +103,20 @@ datablock fxDTSBrickData (busTo16bitData : Powerbrick1x1Data)
 
 function busTo16bitData::DoLog(%data, %gate, %statestack, %client)
 {
-    SetPEPowered(%gate.PE[0], %statestack.ins[0] & 1, %client);
-    SetPEPowered(%gate.PE[1], %statestack.ins[0] & 2, %client);
-    SetPEPowered(%gate.PE[2], %statestack.ins[0] & 4, %client);
-    SetPEPowered(%gate.PE[3], %statestack.ins[0] & 8, %client);
-    SetPEPowered(%gate.PE[4], %statestack.ins[0] & 16, %client);
-    SetPEPowered(%gate.PE[5], %statestack.ins[0] & 32, %client);
-    SetPEPowered(%gate.PE[6], %statestack.ins[0] & 64, %client);
-    SetPEPowered(%gate.PE[7], %statestack.ins[0] & 128, %client);
-    SetPEPowered(%gate.PE[8], %statestack.ins[0] & 256, %client);
-    SetPEPowered(%gate.PE[9], %statestack.ins[0] & 512, %client);
-    SetPEPowered(%gate.PE[10], %statestack.ins[0] & 1024, %client);
-    SetPEPowered(%gate.PE[11], %statestack.ins[0] & 2048, %client);
-    SetPEPowered(%gate.PE[12], %statestack.ins[0] & 4096, %client);
-    SetPEPowered(%gate.PE[13], %statestack.ins[0] & 8192, %client);
-    SetPEPowered(%gate.PE[14], %statestack.ins[0] & 16384, %client);
-    SetPEPowered(%gate.PE[15], %statestack.ins[0] & 32768, %client);
+    SetPEPowered(%gate.PE[0],  (%statestack.ins[0] & 1    ) > 0, %client);
+    SetPEPowered(%gate.PE[1],  (%statestack.ins[0] & 2    ) > 0, %client);
+    SetPEPowered(%gate.PE[2],  (%statestack.ins[0] & 4    ) > 0, %client);
+    SetPEPowered(%gate.PE[3],  (%statestack.ins[0] & 8    ) > 0, %client);
+    SetPEPowered(%gate.PE[4],  (%statestack.ins[0] & 16   ) > 0, %client);
+    SetPEPowered(%gate.PE[5],  (%statestack.ins[0] & 32   ) > 0, %client);
+    SetPEPowered(%gate.PE[6],  (%statestack.ins[0] & 64   ) > 0, %client);
+    SetPEPowered(%gate.PE[7],  (%statestack.ins[0] & 128  ) > 0, %client);
+    SetPEPowered(%gate.PE[8],  (%statestack.ins[0] & 256  ) > 0, %client);
+    SetPEPowered(%gate.PE[9],  (%statestack.ins[0] & 512  ) > 0, %client);
+    SetPEPowered(%gate.PE[10], (%statestack.ins[0] & 1024 ) > 0, %client);
+    SetPEPowered(%gate.PE[11], (%statestack.ins[0] & 2048 ) > 0, %client);
+    SetPEPowered(%gate.PE[12], (%statestack.ins[0] & 4096 ) > 0, %client);
+    SetPEPowered(%gate.PE[13], (%statestack.ins[0] & 8192 ) > 0, %client);
+    SetPEPowered(%gate.PE[14], (%statestack.ins[0] & 16384) > 0, %client);
+    SetPEPowered(%gate.PE[15], (%statestack.ins[0] & 32768) > 0, %client);
 }

@@ -1,14 +1,14 @@
-datablock fxDTSBrickData (NotBrick1x2Data : Powerbrick1x1Data)
+datablock fxDTSBrickData (busNotBrick1x2Data : Powerbrick1x1Data)
 {
-	category = "Logic Bricks";
-	subCategory = "Logic Gates";
-	uiName = "NOT Gate";
+	category = "Bus Bricks";
+	subCategory = "Basic Gates";
+	uiName = "Bus NOT Gate";
 	brickFile = "Add-Ons/Brick_Logic2/bricks/Gate1x2f.blb";
 	iconName = "base/client/ui/brickIcons/1x2f";
 	alwaysShowWireFrame = false;
 	IsLogicBrick = 1;
 	IsGate = 1;
-	GateName = "NOT Gate";//so in code we can do special things
+	GateName = "Bus NOT Gate";//so in code we can do special things
 	TipInfo = "Outputs the inverse of the input";
 	//////////////
 	ISINSTANT = 0;
@@ -24,7 +24,7 @@ datablock fxDTSBrickData (NotBrick1x2Data : Powerbrick1x1Data)
 	IEScale[0] = "0.5 0.5 0.16666";
 };
 
-function NotBrick1x2Data::DoLog(%data, %gate, %statestack, %client)
+function busNotBrick1x2Data::DoLog(%data, %gate, %statestack, %client)
 {
-	SetPEPowered(%gate.PE[0], !(%statestack.ins[0] > 0), %client);
+	SetPEPowered(%gate.PE[0], not(%statestack.ins[0]), %client);
 }
