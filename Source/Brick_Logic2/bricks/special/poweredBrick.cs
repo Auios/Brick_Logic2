@@ -1,8 +1,8 @@
 datablock fxDTSBrickData (PowerBrick1x1Data : brick1x1Data)
 {
-	category = "Logic Bricks";
-	subCategory = "Special";
-	uiName = "Powered Brick";
+	category = "";
+	subCategory = "";
+	uiName = "";
 	brickFile = "base/data/Bricks/Bricks/1x1.blb";
 	alwaysShowWireFrame = false;
 	IsLogicBrick = 1;

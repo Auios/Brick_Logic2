@@ -137,6 +137,9 @@ exec("./bricks/bus/conditional/lesser.cs");
 exec("./bricks/bus/converters/16bitToBus.cs");
 exec("./bricks/bus/converters/busTo16bit.cs");
 
+//Special
+exec("./bricks/bus/special/enabler.cs");
+
 //Memory
 exec("./bricks/bus/memory/512RAM.cs");
 exec("./bricks/bus/memory/1024RAM.cs");
