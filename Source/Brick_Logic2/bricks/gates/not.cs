@@ -26,5 +26,5 @@ datablock fxDTSBrickData (NotBrick1x2Data : Powerbrick1x1Data)
 
 function NotBrick1x2Data::DoLog(%data, %gate, %statestack, %client)
 {
-	SetPEPowered(%gate.PE[0], !%statestack.ins[0], %client);
+	SetPEPowered(%gate.PE[0], not(%statestack.ins[0]), %client);
 }

@@ -29,5 +29,5 @@ datablock fxDTSBrickData (ORBrick2x2Data : Powerbrick1x1Data)//base
 
 function ORBrick2x2Data::DoLog(%data, %gate, %statestack, %client)
 {
-	SetPEPowered(%gate.PE[0], %statestack.ins[0] || %statestack.ins[1], %client);
+	SetPEPowered(%gate.PE[0], %statestack.ins[0] | %statestack.ins[1], %client);
 }

@@ -49,6 +49,10 @@ activatepackage("LogicBrick_Functions");
 //Parent
 exec("./bricks/special/poweredBrick.cs");
 
+/////////////
+////BASIC////
+/////////////
+
 //Wires
 exec("./bricks/wires/1x1.cs");
 exec("./bricks/wires/1x1x5.cs");
@@ -97,3 +101,17 @@ exec("./bricks/chips/7segDecoder.cs");
 exec("./bricks/memory/memoryCell.cs");
 exec("./bricks/memory/16byteRAM.cs");
 exec("./bricks/memory/256byteRAM.cs");
+
+/////////////
+////BUS//////
+/////////////
+
+//Arithmetic
+exec("./bricks/bus/arithmetic/adder.cs");
+exec("./bricks/bus/arithmetic/subtractor.cs");
+exec("./bricks/bus/arithmetic/multiplier.cs");
+exec("./bricks/bus/arithmetic/divisor.cs");
+
+//Converters
+exec("./bricks/bus/converters/16bitToBus.cs");
+exec("./bricks/bus/converters/busTo16bit.cs");
