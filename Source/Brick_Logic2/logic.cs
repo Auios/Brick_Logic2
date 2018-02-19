@@ -392,7 +392,7 @@ function WireGroup::SuggestUpdateState(%this, %override, %client)
 	{
 		%this.UpdateState(0, %override, %client);	
 	}
-	
+
     //for(%p=0;%p<%this.PEindx;%p++)
     //{
     //    if(%this.PE[%p].On)
@@ -569,7 +569,8 @@ function AttachWGtoPE(%WG, %PE)
 
 function SetPEPowered(%PE, %pow, %client)
 {
-	%PE.On = %pow && 1;
+	//%PE.On = %pow && 1;
+	%PE.On = %pow;
 	for(%w=0;%w<%PE.WGindx;%w++)
 	{	
 		if(isObject(%PE.WG[%w]))

@@ -19,27 +19,29 @@ package Logic_Tips
 		}
 		
 		if(%brick.IsWire && $Pref::Server::LogicBricks::ShowWireTips)
-		{	
-			if(%brick.state == 1)
-			{
-				centerPrint(%client,"<color:00FF00>On",1);
-			}
-			else if(%brick.state == 0)
-			{
-				centerPrint(%client,"<color:FF0000>Off",1);
-			}
-			else if((%brick.state > 0) && (%brick.state < 1))
-			{
-				centerPrint(%client,"Power Value: <color:00FF00>" SPC%brick.state,1);
-			}
-			else if(%brick.state > 1)
-			{
-				centerPrint(%client,"Power Value: <color:00FF00>" SPC%brick.state,1);
-			}
-			else if(%brick.state < 0)
-			{
-				centerPrint(%client,"Power Value: <color:FF0000>" SPC%brick.state,1);
-			}
+		{
+			centerPrint(%client,"Value: <color:FFFFFF>" SPC %brick.state, 1);
+
+			//if(%brick.state == 1)
+			//{
+			//	centerPrint(%client,"<color:00FF00>On",1);
+			//}
+			//else if(%brick.state == 0)
+			//{
+			//	centerPrint(%client,"<color:FF0000>Off",1);
+			//}
+			//else if((%brick.state > 0) && (%brick.state < 1))
+			//{
+			//	centerPrint(%client,"Power Value: <color:00FF00>" SPC%brick.state,1);
+			//}
+			//else if(%brick.state > 1)
+			//{
+			//	centerPrint(%client,"Power Value: <color:00FF00>" SPC%brick.state,1);
+			//}
+			//else if(%brick.state < 0)
+			//{
+			//	centerPrint(%client,"Power Value: <color:FF0000>" SPC%brick.state,1);
+			//}
 		}
 
 		if(%brick.IsGate && $Pref::Server::LogicBricks::ShowGateTips)
