@@ -12,7 +12,7 @@ datablock fxDTSBrickData (Subtractor8bitBrick4x16Data : Powerbrick1x1Data)
 	TipInfo = "Subtracts B from A";
 	ISINSTANT = 0;
 
-	numPE = 8;
+	numPE = 9;
 
 	PEName[0] = "Out0";
 	PEPos[0] = "-0.25 0.75 0.0";
@@ -53,6 +53,11 @@ datablock fxDTSBrickData (Subtractor8bitBrick4x16Data : Powerbrick1x1Data)
 	PEPos[7] = "-3.75 0.75 0.0";
 	PEScale[7] = "0.5 0.5 0.16666";
 	PEStart[7] = 0;
+
+	PEName[8] = "Negative";
+	PEPos[8] = "0.75 0.75 0.0";
+	PEScale[8] = "0.5 0.5 0.16666";
+	PEStart[8] = 0;	
 
 	numIE = 16;
 
@@ -144,6 +149,16 @@ function Subtractor8bitBrick4x16Data::DoLog(%data, %gate, %statestack, %client)
 		(%statestack.ins[15] * 128);
 
 	%finalValue = %valueA - %valueB;
+
+	if(%finalValue < 0)
+	{
+		%finalValue = mAbs(%finalValue);
+		SetPEPowered(%gate.PE[8], 1, %client);
+	}
+	else
+	{
+		SetPEPowered(%gate.PE[8], 0, %client);
+	}
 
     SetPEPowered(%gate.PE[0], %finalValue & 1, %client);
     SetPEPowered(%gate.PE[1], %finalValue & 2, %client);
