@@ -23,10 +23,10 @@ function PixelHighBrick1x2Data::DoLog(%data, %gate, %statestack, %client)
 {
 	if(%statestack.ins[0])
 	{
-		%gate.colorFXID = 3;
+		%gate.setColorFX(3);
 	}
 	else
 	{
-		%gate.colorFXID = 0;
+		%gate.setColorFX(0);
 	}
 }
