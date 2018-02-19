@@ -12,7 +12,7 @@ datablock fxDTSBrickData (Adder8bitBrick4x16Data : Powerbrick1x1Data)
 	TipInfo = "Adds 8bit A and 8bit B together and produces a sum";
 	ISINSTANT = 0;
 
-	numPE = 9;
+	numPE = 10;
 
 	PEName[0] = "Out0";
 	PEPos[0] = "0.25 0.75 0.0";
@@ -58,6 +58,11 @@ datablock fxDTSBrickData (Adder8bitBrick4x16Data : Powerbrick1x1Data)
 	PEPos[8] = "-3.75 0.75 0.0";
 	PEScale[8] = "0.5 0.5 0.16666";
 	PEStart[8] = 0;
+
+	PEName[9] = "BusOut";
+	PEPos[9] = "1.75 0.75 0.0";
+	PEScale[9] = "0.5 0.5 0.16666";
+	PEStart[9] = 0;
 
 	numIE = 16;
 
@@ -159,4 +164,6 @@ function Adder8bitBrick4x16Data::DoLog(%data, %gate, %statestack, %client)
     SetPEPowered(%gate.PE[6], %finalValue & 64, %client);
     SetPEPowered(%gate.PE[7], %finalValue & 128, %client);
     SetPEPowered(%gate.PE[8], %finalValue & 256, %client);
+
+    SetPEPowered(%gate.PE[9], %finalValue, %client);
 }
