@@ -112,6 +112,16 @@ exec("./bricks/bus/arithmetic/subtractor.cs");
 exec("./bricks/bus/arithmetic/multiplier.cs");
 exec("./bricks/bus/arithmetic/divisor.cs");
 
+//Math
+exec("./bricks/bus/math/mFloor.cs");
+exec("./bricks/bus/math/mCeil.cs");
+
+//Conditional
+exec("./bricks/bus/conditional/equal.cs");
+exec("./bricks/bus/conditional/notEqual.cs");
+exec("./bricks/bus/conditional/greater.cs");
+exec("./bricks/bus/conditional/lesser.cs");
+
 //Converters
 exec("./bricks/bus/converters/16bitToBus.cs");
 exec("./bricks/bus/converters/busTo16bit.cs");
