@@ -30,32 +30,32 @@ datablock fxDTSBrickData (Adder8bitBrick4x16Data : Powerbrick1x1Data)
 	PEStart[2] = 0;	
 
 	PEName[3] = "Out3";
-	PEPos[3] = "-2.25 0.75 0.0";
+	PEPos[3] = "-1.25 0.75 0.0";
 	PEScale[3] = "0.5 0.5 0.16666";
 	PEStart[3] = 0;	
 
 	PEName[4] = "Out4";
-	PEPos[4] = "-2.75 0.75 0.0";
+	PEPos[4] = "-1.75 0.75 0.0";
 	PEScale[4] = "0.5 0.5 0.16666";
 	PEStart[4] = 0;	
 
 	PEName[5] = "Out5";
-	PEPos[5] = "-3.25 0.75 0.0";
+	PEPos[5] = "-2.25 0.75 0.0";
 	PEScale[5] = "0.5 0.5 0.16666";
 	PEStart[5] = 0;	
 
 	PEName[6] = "Out6";
-	PEPos[6] = "-3.75 0.75 0.0";
+	PEPos[6] = "-2.75 0.75 0.0";
 	PEScale[6] = "0.5 0.5 0.16666";
 	PEStart[6] = 0;	
 
 	PEName[7] = "Out7";
-	PEPos[7] = "-4.25 0.75 0.0";
+	PEPos[7] = "-3.25 0.75 0.0";
 	PEScale[7] = "0.5 0.5 0.16666";
 	PEStart[7] = 0;
 
 	PEName[8] = "Out8";
-	PEPos[8] = "-4.75 0.75 0.0";
+	PEPos[8] = "-3.75 0.75 0.0";
 	PEScale[8] = "0.5 0.5 0.16666";
 	PEStart[8] = 0;
 
