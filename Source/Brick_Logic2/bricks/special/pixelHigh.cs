@@ -21,12 +21,14 @@ datablock fxDTSBrickData (PixelHighBrick1x2Data : Powerbrick1x1Data)
 
 function PixelHighBrick1x2Data::DoLog(%data, %gate, %statestack, %client)
 {
-	if(%statestack.ins[0])
+	if(%statestack.ins[0] > 0)
 	{
 		%gate.setColorFX(3);
+		%gate.setColor((%statestack.ins[0]+1) % 63);
 	}
 	else
 	{
 		%gate.setColorFX(0);
+		%gate.setColor(0);
 	}
 }

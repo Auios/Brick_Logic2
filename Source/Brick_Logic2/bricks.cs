@@ -89,8 +89,6 @@ exec("./bricks/arithmetic/8bitDivisor.cs");
 //Special
 exec("./bricks/special/diode.cs");
 exec("./bricks/special/8bitEnabler.cs");
-exec("./bricks/special/pixelLow.cs");
-exec("./bricks/special/pixelHigh.cs");
 
 //Chips
 exec("./bricks/chips/4bitDecoder.cs");
@@ -139,6 +137,8 @@ exec("./bricks/bus/converters/busTo16bit.cs");
 
 //Special
 exec("./bricks/bus/special/enabler.cs");
+exec("./bricks/bus/special/pixelLow.cs");
+exec("./bricks/bus/special/pixelHigh.cs");
 
 //Memory
 exec("./bricks/bus/memory/512RAM.cs");

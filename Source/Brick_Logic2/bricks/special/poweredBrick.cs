@@ -2,7 +2,7 @@ datablock fxDTSBrickData (PowerBrick1x1Data : brick1x1Data)
 {
 	category = "";
 	subCategory = "";
-	uiName = "";
+	uiName = "Powered Brick";
 	brickFile = "base/data/Bricks/Bricks/1x1.blb";
 	alwaysShowWireFrame = false;
 	IsLogicBrick = 1;
