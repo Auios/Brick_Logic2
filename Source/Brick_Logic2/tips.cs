@@ -20,28 +20,8 @@ package Logic_Tips
 		
 		if(%brick.IsWire && $Pref::Server::LogicBricks::ShowWireTips)
 		{
-			centerPrint(%client,"Value: <color:FFFFFF>" SPC %brick.state, 1);
-
-			//if(%brick.state == 1)
-			//{
-			//	centerPrint(%client,"<color:00FF00>On",1);
-			//}
-			//else if(%brick.state == 0)
-			//{
-			//	centerPrint(%client,"<color:FF0000>Off",1);
-			//}
-			//else if((%brick.state > 0) && (%brick.state < 1))
-			//{
-			//	centerPrint(%client,"Power Value: <color:00FF00>" SPC%brick.state,1);
-			//}
-			//else if(%brick.state > 1)
-			//{
-			//	centerPrint(%client,"Power Value: <color:00FF00>" SPC%brick.state,1);
-			//}
-			//else if(%brick.state < 0)
-			//{
-			//	centerPrint(%client,"Power Value: <color:FF0000>" SPC%brick.state,1);
-			//}
+			centerPrint(%client,"Value:<color:FFFFFF>" SPC %brick.state, 1);
+			return;
 		}
 
 		if(%brick.IsGate && $Pref::Server::LogicBricks::ShowGateTips)
@@ -94,54 +74,14 @@ package Logic_Tips
 				centerPrint(%client, %brick.GateName @ "\n<color:FFFFFF>" @ %brick.TipInfo ,3);
 				return;
 			}
-			
+		
 			if(%closestElement.isInputElement)
 			{
-				if(%closestElement.WG.state == 1)
-				{
-					%display1 = "On";
-					%currcolor = "<color:00FF00>";
-				}
-				else if(%closestElement.WG.state == 0)
-				{
-					%display1 = "Off";
-					%currcolor = "<color:FF0000>";
-				}
-				else if(%closestElement.WG.state < 0)
-				{
-					%display1 = %closestElement.WG.state;
-					%currcolor = "<color:FF0000>";
-				}
-				else
-				{
-					%display1 = %closestElement.WG.state;
-					%currcolor = "<color:00FF00>";
-				}
-				centerPrint(%client, %brick.GateName @ "\n<color:FFFF00>" @ %closestElement.Name @ ": " @ %currcolor @ %display1,2);
+				centerPrint(%client, %brick.GateName @ "\n<color:FFFF00>" @ %closestElement.Name @ ": <color:ffffff>" @ %closestElement.WG.state,2);
 			}
 			else if(%closestElement.isPowerElement)
 			{	
-				if(%closestElement.On == 1)
-				{
-					%display1 = "On";
-					%currcolor = "<color:00FF00>";
-				}
-				else if(%closestElement.On == 0)
-				{
-					%display1 = "Off";
-					%currcolor = "<color:FF0000>";
-				}
-				else if(%closestElement.On < 0)
-				{
-					%display1 = %closestElement.On;
-					%currcolor = "<color:FF0000>";
-				}
-				else
-				{
-					%display1 = %closestElement.On;
-					%currcolor = "<color:00FF00>";
-				}
-				centerPrint(%client, %brick.GateName @ "\n<color:00FFFF>" @ %closestElement.Name @ ": " @ %currcolor @ %display1,2);
+				centerPrint(%client, %brick.GateName @ "\n<color:00FFFF>" @ %closestElement.Name @ ": <color:ffffff>" @ %closestElement.On,2);
 			}
 		}
 	}
