@@ -367,15 +367,41 @@ function SpreadWireGroup(%wirebrick)//on the wire brick.
 
 function WireGroup::SuggestUpdateState(%this, %override, %client)
 {
-    for(%p=0;%p<%this.PEindx;%p++)
-    {
-        if(%this.PE[%p].On)
-        {    
-            %this.UpdateState(1, %override, %client);
-            return;
-        }
-    }
-    %this.UpdateState(0, %override, %client);
+	//loop through all connected power elements and see if any are on- if 1 or more are on, we set state to the largest value
+	%count = 0;
+	%largestVal = -999999.9;
+
+	for(%p=0;%p<%this.PEindx;%p++)
+	{
+		if(%this.PE[%p].On)
+		{	
+			%count++;
+
+			if(%this.PE[%p].On > %largestval)
+			{
+				%largestVal = %this.PE[%p].On;
+			}
+		}
+	}
+
+	if(%count)
+	{		
+		%this.UpdateState(%largestVal, %override, %client);	
+	}
+	else
+	{
+		%this.UpdateState(0, %override, %client);	
+	}
+	
+    //for(%p=0;%p<%this.PEindx;%p++)
+    //{
+    //    if(%this.PE[%p].On)
+    //    {    
+    //        %this.UpdateState(1, %override, %client);
+    //        return;
+    //    }
+    //}
+    //%this.UpdateState(0, %override, %client);
 }
 
 function WireGroup::UpdateState(%this, %st, %override, %client)
