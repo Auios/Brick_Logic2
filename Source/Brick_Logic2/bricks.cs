@@ -125,6 +125,7 @@ exec("./bricks/bus/math/mFloor.cs");
 exec("./bricks/bus/math/mCeil.cs");
 exec("./bricks/bus/math/mAbs.cs");
 exec("./bricks/bus/math/mFloatLength.cs");
+exec("./bricks/bus/math/modulus.cs");
 
 //Conditional
 exec("./bricks/bus/conditional/equal.cs");

@@ -4,7 +4,7 @@ datablock fxDTSBrickData (RAM1024Brick2x4Data : Powerbrick1x1Data)
 	subCategory = "Memory";
 	uiName = "1Kb RAM";
 	iconName = "base/client/ui/brickIcons/2x4f";
-	brickFile = "Add-Ons/Brick_Logic2/bricks/Gate2x4f.blb";
+	brickFile = "base/data/bricks/flats/2x4F.blb";
 	alwaysShowWireFrame = false;
 	IsLogicBrick = 1;
 	IsGate = 1;
@@ -45,17 +45,14 @@ function RAM1024Brick2x4Data::DoLog(%data, %gate, %statestack, %client)
 {
 	if(!%gate.IE[4].previousState && %statestack.ins[4]) //Positive clock edge
 	{
-		if(%statestack.ins[1] >= 0 && %statestack.ins[1] < 1024)
+		if(%statestack.ins[3]) //if write enable
 		{
-			if(%statestack.ins[2]) //if read enabled
+			%gate.data[%statestack.ins[1] % 1024] = %statestack.ins[0];
+		}
+
+		if(%statestack.ins[2]) //if read enabled
 		{
 			SetPEPowered(%gate.PE[0],%gate.data[%statestack.ins[1]],%client);
 		}
-
-		if(%statestack.ins[3]) //if write enable
-		{
-			%gate.data[%statestack.ins[1]] = %statestack.ins[0];
-		}
 	}
-	SetPEPowered(%gate.PE[0], %statestack.ins[0] | %statestack.ins[1]), %client);
 }

@@ -36,3 +36,8 @@ function getBinary(%decimalNumber, %position)
 {
 	return (%decimalNumber >> %position) & 1;
 }
+
+function reloadLogic()
+{
+	exec("add-ons/Brick_Logic2/server.cs");
+}
