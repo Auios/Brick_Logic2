@@ -1135,6 +1135,16 @@ function ShowVisualElements(%brick)
 	}
 }
 
+function getMinBits(%n)
+{
+	return mceil(mlog(%n)/mlog(2)+0.00001);
+}
+
+function not(%n)
+{
+	return %n ^ (( 1 << getMinBits(%n)) -1);
+}
+
 package Logic2_System
 {
 	//This Makes it so an OnPlant doesnt have to be specified for every kind of brick.
