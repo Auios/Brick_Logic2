@@ -1,6 +1,6 @@
 datablock fxDTSBrickData (PixelHighBrick1x2Data : Powerbrick1x1Data)
 {
-	category = "Logic Bricks";
+	category = "Bus Bricks";
 	subCategory = "Special";
 	uiName = "Pixel High";
 	brickFile = "base/data/bricks/bricks/1x2.blb";
@@ -24,11 +24,11 @@ function PixelHighBrick1x2Data::DoLog(%data, %gate, %statestack, %client)
 	if(%statestack.ins[0] > 0)
 	{
 		%gate.setColorFX(3);
-		%gate.setColor((%statestack.ins[0]+1) % 63);
+		%gate.setColor((%statestack.ins[0]-1) % 63);
 	}
 	else
 	{
 		%gate.setColorFX(0);
-		%gate.setColor(0);
+		%gate.setColor(53);
 	}
 }
