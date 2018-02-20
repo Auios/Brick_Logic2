@@ -156,7 +156,7 @@ function SegmentBrick4x4Data::DoLog(%data,%gate,%statestack,%client)
 			%A = 1;
 			%B = 1;
 			%C = 1;
-			%D = 0;
+			%D = 1;
 			%E = 0;
 			%F = 1;
 			%G = 1;
